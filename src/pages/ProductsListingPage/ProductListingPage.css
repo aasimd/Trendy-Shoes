@@ -1,0 +1,23 @@
+/** @format */
+* {
+	box-sizing: border-box;
+}
+aside {
+	grid-area: aside;
+}
+
+nav {
+	grid-area: nav;
+}
+section {
+	grid-area: section;
+}
+main {
+	background-color:white;
+	display: grid;
+	grid-template-areas:
+		"nav nav nav"
+		"aside section section"
+		"aside section section";
+}
+

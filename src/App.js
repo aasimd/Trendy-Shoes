@@ -1,41 +1,48 @@
 import "./App.css";
-import logo from "./logo.png";
-
+import Mockman from "mockman-js";
+import { Route, Routes } from "react-router-dom";
+import { LandingPage } from "./pages/LandingPage/LandingPage.jsx";
+import { ProductsListingPage } from "./pages/ProductsListingPage/ProductsListingPage.jsx";
+import { ProductInfo } from "./pages/ProductsInfo/ProductsInfo";
+import { LogInPage } from "./pages/LogInPage/LogInPage";
+import { CartPage } from "./pages/CartPage/CartPage";
+import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
+import { WishlistPage } from "./pages/WishlistPage/WishlistPage";
+import { Auth } from "./Components/Auth/Auth";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
-        </div>
-      </header>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/products" element={<ProductsListingPage />} />
+        <Route path="/mockman" element={<Mockman />} />
+        <Route path="/products/:productId" element={<ProductInfo />} />
+        <Route path="/login" element={<LogInPage />} />
+        <Route
+          path="/cart"
+          element={
+            <Auth>
+              <CartPage />
+            </Auth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Auth>
+              <ProfilePage />
+            </Auth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <Auth>
+              <WishlistPage />
+            </Auth>
+          }
+        />
+      </Routes>
     </div>
   );
 }

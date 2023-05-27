@@ -1,0 +1,74 @@
+/** @format */
+
+.filters {
+	width: 250px;
+	box-sizing: border-box;
+	padding: 10px;
+	text-align: left;
+	display: grid;
+	overflow-y: scroll;
+	height: 100vh;
+	/* max-height: fit-content; */
+	gap: 0.5rem;
+	position: sticky;
+	top: 5px;
+	background-color: whitesmoke
+}
+.filters b {
+	font-size: 18px;
+	font-weight: 700;
+	padding: 10px;
+}
+.filters p {
+	font-weight: 500;
+}
+.clear-filters-button {
+	position: absolute;
+	right: 20px;
+	top: 25px;
+	font-size: 15px;
+	border: 1px solid;
+	padding: 2px;
+	background-color: inherit;
+	color: #444444;
+}
+
+.price-filter,
+.gender-filter,
+.categories-filter,
+.ratings-stars-list-filter,
+.sort-by-price-filter,
+.size-filter {
+	padding: 10px 0;
+	gap: 0.5rem;
+}
+.filters ul li {
+	padding: 3px;
+	display: block;
+}
+
+input[type="checkbox"] {
+	padding-right: 10px;
+}
+.size-filter {
+	flex-basis: 25%;
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+datalist {
+	display: flex;
+	justify-content: space-between;
+	writing-mode: sideways-lr;
+	width: 200px;
+}
+
+option {
+	padding-bottom: 0px;
+}
+
+input[type="range"] {
+	width: 200px;
+	margin: 0;
+	padding: 0;
+}

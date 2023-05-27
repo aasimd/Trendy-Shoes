@@ -8,20 +8,34 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Casual",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Casual shoes are typically not made from leather and are usually not considered dressy enough to be worn with a suit.",
+    image:
+      "https://img.stadiumgoods.com/nike-air-max-270-react-eng-watermelon_15619598_43101385_1000.jpg",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Sport",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "A shoe designed to be worn for sports, exercising, or recreational activity, as racquetball, jogging, or aerobic dancing..",
+    image:
+      "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_1050,h_1050/global/106713/04/sv01/fnd/IND/fmt/png/PUMA-22-FH-Rubber-Unisex-Cricket-Shoes",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Formal",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "A shoe that is suitable for wearing with formal clothes: Students are required to wear a tie, blazer, khakis, and dress shoes.",
+    image:
+      "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/18787626/2022/6/20/a4eec8a7-deb8-44f3-a3b1-86c9e897aaaa1655717938087AllenSollyMenBrownSolidOxfordFormalShoes2.jpg",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Sandal",
+    description:
+      "Sandals are an open type of footwear, with a sole held to the wearer's foot by straps or thongs passing over the instep and around the ankle. Good for Rains.",
+    image:
+      "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/18737874/2022/11/25/eb69810c-664b-4fc8-9502-30392199edee1669352826643-ADIDAS-Men-Sandals-8331669352826253-1.jpg",
   },
 ];

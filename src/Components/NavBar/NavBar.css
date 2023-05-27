@@ -1,0 +1,21 @@
+/** @format */
+
+.nav-bar {
+	display: flex;
+	gap: 1rem;
+	max-height: 70px;
+	padding: 0.5rem;
+	box-sizing: border-box;
+}
+.nav-bar button,
+.nav-bar input,
+.nav-bar NavLink {
+	flex-grow: 1;
+}
+.nav-bar input[type="text"] {
+	padding: 10px;
+	border-radius: 50px 50px 50px 50px;
+	height: 40px;
+	border: 1px solid #777777;
+	color: #777777;
+}
