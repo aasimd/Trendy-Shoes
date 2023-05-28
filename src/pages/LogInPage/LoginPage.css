@@ -1,0 +1,79 @@
+/** @format */
+
+* {
+	box-sizing: border-box;
+}
+.login-page,
+.signup-page {
+	display: flex;
+	margin: 5rem auto;
+	box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.2);
+	padding: 20px 60px;
+	gap: 0.2rem;
+	border-radius: 10px;
+	flex-direction: column;
+	max-width: 300px;
+	text-align: left;
+}
+.login-page h1,
+.signup-page h1 {
+	text-align: center;
+	padding-bottom: 20px;
+	color: #333333;
+}
+.login-page p,
+.signup-page p {
+	font-size: 18px;
+	font-weight: 500;
+}
+.login-page input,
+.signup-page input {
+	padding: 5px;
+	border-radius: 10px;
+	border: 1px solid #777777;
+	color: #333333;
+}
+.login-page button,
+.signup-page button {
+	margin: 5px 10px;
+}
+.login-page button:nth-of-type(1),
+.signup-page button:nth-of-type(1) {
+	background-color: var(--primary-color);
+	border: none;
+	color: white;
+	padding: 5px;
+	font-size: 15px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.login-page button:nth-of-type(1):hover,
+.signup-page button:nth-of-type(1):hover {
+	background-color: var(--primary-color-dark);
+}
+.login-page button:nth-of-type(2),
+.signup-page button:nth-of-type(2) {
+	background-color: white;
+	padding: 5px;
+	border-radius: 10px;
+	border: 1px solid var(--primary-color);
+	color: var(--primary-color);
+	cursor: pointer;
+}
+.login-page button:nth-of-type(2):hover,
+.signup-page button:nth-of-type(2):hover {
+	color: var(--primary-color-dark);
+	border: 1px solid var(--primary-color-dark);
+}
+
+.login-page button:nth-of-type(3),
+.signup-page button:nth-of-type(3) {
+	color: var(--primary-color);
+	background-color: white;
+	border: none;
+}
+.login-page button:nth-of-type(3):hover,
+.signup-page button:nth-of-type(3):hover {
+	color: var(--primary-color-dark);
+	cursor: pointer;
+}

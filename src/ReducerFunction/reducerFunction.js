@@ -74,7 +74,7 @@ export const reducerFunction = (state, { type, payload }) => {
 				isLoggedIn: payload
 			};
 		case "setLoginError":
-			return { ...state, loginError: toString(payload) };
+			return { ...state, loginError: payload };
 		case "setLoginEncodedToken":
 			return { ...state, loginEncodedToken: payload };
 		case "setUserInfo":

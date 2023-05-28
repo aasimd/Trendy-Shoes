@@ -1,5 +1,6 @@
 /** @format */
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const fetchCategories = async (dispatch) => {
 	try {
 		const response = await fetch(`/api/categories`);
@@ -62,10 +63,26 @@ export const fetchEncodedToken = async (
 		localStorage.setItem("encodedtoken", encodedToken);
 		dispatch({ type: "setLoginEncodedToken", payload: encodedToken });
 		dispatch({ type: "setUserInfo", payload: foundUser });
-		dispatch({ type: "setLogin", payload: true });
+		if (encodedToken === undefined) {
+			console.error("Wrong email id or password entered");
+			dispatch({
+				type: "setLoginError",
+				payload: "Wrong Email ID or Password entered"
+			});
+		} else {
+			dispatch({ type: "setLogin", payload: true });
+			dispatch({
+				type: "setLoginError",
+				payload: ""
+			});
+		}
 		navigate(location?.state?.from?.pathname);
 	} catch ({ errors }) {
 		console.error(errors);
+		dispatch({
+			type: "setLoginError",
+			payload: "Wrong Email ID or Password entered"
+		});
 	}
 };
 export const fetchSignupUser = async (data, dispatch, navigate, location) => {
@@ -75,11 +92,10 @@ export const fetchSignupUser = async (data, dispatch, navigate, location) => {
 			method: "POST",
 			body: creds
 		});
-		const { encodedToken, foundUser } = await response.json();
+		const { encodedToken, createdUser } = await response.json();
 		localStorage.setItem("encodedtoken", encodedToken);
 		dispatch({ type: "setLoginEncodedToken", payload: encodedToken });
-
-		dispatch({ type: "setUserInfo", payload: foundUser });
+		dispatch({ type: "setUserInfo", payload: createdUser });
 		dispatch({ type: "setLogin", payload: true });
 		navigate(location?.state?.from?.pathname);
 	} catch (e) {

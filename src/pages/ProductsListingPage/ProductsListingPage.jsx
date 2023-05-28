@@ -28,9 +28,6 @@ export const ProductsListingPage = () => {
 						<aside className="filters-container">
 							<Filters />
 						</aside>
-						ProductsListingPage <br />
-						total products:
-						{displayData.length} <br />
 						<section className="products-list">
 							<ul>
 								{displayData.map((product) => (
@@ -41,10 +38,6 @@ export const ProductsListingPage = () => {
 					</main>
 				</div>
 			)}
-			<div>
-				<button onClick={notify}>Notify!</button>
-				<ToastContainer />
-			</div>
 		</div>
 	);
 };

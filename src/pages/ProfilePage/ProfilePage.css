@@ -1,0 +1,273 @@
+/** @format */
+
+* {
+	box-sizing: border-box;
+}
+nav {
+	grid-template: nav;
+}
+.profile-content {
+	grid-template: maincontent;
+}
+.profile-page {
+	display: grid;
+	grid-template-areas:
+		"nav nav nav"
+		"asidecontent maincontent maincontent"
+		"asidecontent maincontent maincontent";
+}
+/* Profile buttons */
+.profile-buttons {
+	grid-template: asidecontent;
+	display: flex;
+	width: 200px;
+	flex-direction: column;
+	padding-top: 2rem;
+	background-color: var(--primary-color);
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	height: 120vh;
+}
+.profile-buttons button {
+	transition: 0.2s;
+}
+.inactive-profile-button {
+	width: 100%;
+	padding: 10px;
+	font-size: 18px;
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	font-weight: 600;
+}
+.active-profile-button {
+	width: 100%;
+	padding: 13px;
+	font-size: 18px;
+	color: white;
+	border: none;
+	font-weight: 600;
+	background-color: var(--primary-color-dark);
+	border-radius: 0px 10px 0px 0;
+	border-bottom: 4px solid white;
+}
+/* User Profile */
+.user-profile-section {
+	width: 450px;
+	height: 300px;
+	margin: auto;
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+}
+.user-profile-section h1 {
+	padding-top: 20px;
+	color: var(--primary-color);
+	font-size: 24px;
+}
+.user-profile-section p:nth-of-type(1) {
+	margin-top: 60px;
+}
+.user-profile-section span {
+	font-size: 27px;
+	color: #999999;
+	font-weight: 600;
+}
+.user-profile-section p {
+	font-size: 27px;
+	color: #222222;
+	font-weight: 500;
+}
+.user-profile-section button {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	padding: 7px 10px;
+	font-size: 18px;
+	border-radius: 10px;
+	border: none;
+	background-color: red;
+	color: white;
+	font-weight: 400;
+}
+.user-profile-section button:hover {
+	background-color: rgb(179, 2, 2);
+}
+/* Addresses */
+
+.address-section ul {
+	display: flex;
+	flex-direction: column;
+}
+.address-section {
+	display: grid;
+	grid-template-areas: "addresslist addnewaddress";
+	gap: 1rem;
+	justify-content: space-around;
+	position: relative;
+}
+
+.address-section .address-list-section {
+	grid-template: addresslist;
+	position: relative;
+}
+.address-section .add-new-address-section {
+	grid-template: addnewaddress;
+}
+.address-list-section b {
+	margin-top: 100px;
+}
+.address-list-section li {
+	border: 1px solid;
+	width: 400px;
+	margin: 10px auto;
+	list-style: none;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+}
+.address-list-section input {
+	padding: 10px;
+	width: 90%;
+	margin: 3px;
+	border-radius: 10px;
+	border: 1px solid #888888;
+	font-size: 14px;
+}
+.address-list-section .address-edit-container {
+	text-align: left;
+}
+.address-edit-container {
+	position: relative;
+}
+.address-edit-container button {
+	background-color: var(--primary-color);
+	padding: 3px 10px;
+	color: white;
+	font-size: 18px;
+	border: none;
+	border-radius: 10px;
+	margin-left: 5px;
+}
+.address-edit-container button:hover {
+	background-color: var(--primary-color-dark);
+}
+.address-container {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	padding: 10px;
+	position: relative;
+}
+.address-container h2 {
+	color: #222222;
+	font-size: 24px;
+}
+.address-container p {
+	color: #333333;
+	font-size: 18px;
+	line-height: 1.5;
+	font-weight: 500;
+}
+.address-container div button {
+	margin-top: 10px;
+	padding: 3px 10px;
+	border-radius: 7px;
+	border: none;
+	color: white;
+	font-size: 18px;
+}
+.address-container div button:nth-of-type(2) {
+	background-color: red;
+	position: absolute;
+	right: 10px;
+}
+.address-container div button:nth-of-type(1) {
+	background-color: var(--primary-color);
+	position: relative;
+	left: 210px;
+}
+.address-container div button:nth-of-type(1):hover {
+	background-color: var(--primary-color-dark);
+}
+.address-container div button:nth-of-type(2):hover {
+	background-color: rgb(179, 2, 2);
+}
+.add-new-address-container {
+	margin-top: 2rem;
+	width: 350px;
+	padding: 20px;
+	border-radius: 7px;
+	border: 1px solid;
+	color: black;
+	font-size: 18px;
+	display: flex;
+}
+.add-new-address-button {
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	padding: 3px 10px;
+	font-size: 18px;
+	border-radius: 7px;
+	cursor: pointer;
+	font-weight: 600;
+}
+.add-new-address-button span {
+	font-size: 20px;
+	font-weight: 700;
+}
+.add-new-address-button:hover {
+	background-color: var(--primary-color-dark);
+}
+.add-new-address-container input {
+	padding: 10px;
+	width: 90%;
+	margin: 5px;
+	border-radius: 10px;
+	border: 1px solid #888888;
+	font-size: 14px;
+}
+.add-new-address-container button {
+	margin: 10px;
+}
+.add-new-address-container button:nth-of-type(1) {
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	padding: 3px 10px;
+	font-size: 18px;
+	border-radius: 7px;
+	cursor: pointer;
+	font-weight: 600;
+}
+.add-new-address-container button:nth-of-type(1):hover {
+	background-color: var(--primary-color-dark);
+}
+.add-new-address-container button:nth-of-type(2) {
+	background-color: red;
+	color: white;
+	border: none;
+	padding: 3px 10px;
+	font-size: 18px;
+	border-radius: 7px;
+	cursor: pointer;
+	font-weight: 600;
+}
+.add-new-address-container button:nth-of-type(2):hover {
+	background-color: rgb(179, 2, 2);
+}
+.empty-address-message {
+	margin-top: 100px;
+	color: red;
+	font-size: 20px;
+}

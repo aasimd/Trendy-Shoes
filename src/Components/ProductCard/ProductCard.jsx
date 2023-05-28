@@ -12,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { SizeListCard } from "../SizeList/SizeList";
 export const ProductCard = ({ product }) => {
 	const { dispatch, state, displayData } = useContext(PageContext);
 	const [showSize, setShowSize] = useState(false);
@@ -23,19 +23,32 @@ export const ProductCard = ({ product }) => {
 		navigate(`/products/${id}`);
 	};
 	const AddToWishlistHandler = (id) => {
-		const productToAdd = displayData.find((product) => product._id === id);
-		fetchAddItemToWishlist(productToAdd);
-		getWishlistData(dispatch);
-		toast.success("Added to Wishlist!", {
-			position: "bottom-right",
-			autoClose: 2000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: "light"
-		});
+		if (state.isLoggedIn) {
+			const productToAdd = displayData.find((product) => product._id === id);
+			fetchAddItemToWishlist(productToAdd);
+			getWishlistData(dispatch);
+			toast.success("Added to Wishlist!", {
+				position: "bottom-right",
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light"
+			});
+		} else {
+			toast.info("Please login to add products to wishlist!", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light"
+			});
+		}
 	};
 	const RemoveFromWishlistHandler = (id) => {
 		removeItemFromWishlist(dispatch, id);
@@ -50,17 +63,8 @@ export const ProductCard = ({ product }) => {
 			theme: "light"
 		});
 	};
-	const AddToCartHandler = (id, event) => {
-		const productToAdd = displayData.find((product) => product._id === id);
-		const productWithSelectedSize = {
-			...productToAdd,
-			selectedSize: event.target.value,
-			_id: productToAdd._id + event.target.value
-		};
-		fetchAddItemToCart(dispatch, productWithSelectedSize);
-		setShowSize(!showSize);
-	};
-	const { size, price, title, brand, image, _id, id, inStock } = product;
+
+	const { size, price, title, brand, image, _id, inStock, rating } = product;
 	return (
 		<li key={_id} className={!inStock ? "out-of-stock" : ""}>
 			<img
@@ -80,6 +84,9 @@ export const ProductCard = ({ product }) => {
 					Rs. {price} <span>Rs. {parseInt(price * 1.2)}</span>
 				</p>
 			</article>
+			<div className="rating-star">
+				<i class="fa-solid fa-star" style={{ color: "#ffc800" }}></i> {rating}
+			</div>
 			<button
 				disabled={!inStock ? true : false}
 				style={{ cursor: !inStock ? "not-allowed" : "pointer" }}
@@ -104,12 +111,11 @@ export const ProductCard = ({ product }) => {
 						<ul>
 							<br />
 							{size.map((size) => (
-								<button
-									value={size}
-									onClick={(event) => AddToCartHandler(_id, event)}
-								>
-									UK {size}
-								</button>
+								<SizeListCard
+									size={size}
+									_id={_id}
+									setShowSize={setShowSize}
+								/>
 							))}
 						</ul>
 					</>

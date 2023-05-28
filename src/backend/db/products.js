@@ -738,7 +738,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		title: "Men Navy Blue & Orange Solid Comfort Sandals",
+		title: "Navy Blue & Orange Solid Sandals",
 		brand: "Woodland",
 		price: 999,
 		categoryName: "Sandal",

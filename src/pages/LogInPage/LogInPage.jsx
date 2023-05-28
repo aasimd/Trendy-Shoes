@@ -1,4 +1,5 @@
 /** @format */
+import "./LoginPage.css";
 import React, { useContext, useState } from "react";
 import {
 	fetchEncodedToken,
@@ -6,6 +7,8 @@ import {
 } from "../../FetchFunctions/FetchFunctions";
 import { PageContext } from "../../contexts/PageContext";
 import { useLocation, useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const LogInPage = () => {
 	const location = useLocation();
@@ -31,95 +34,151 @@ export const LogInPage = () => {
 			password: "adarshbalika"
 		}));
 	};
+	const randomDataToSignupHandler = () => {
+		setSignupInfo((prev) => ({
+			...prev,
+			email: "johndoe@gmail.com",
+			password: "johndoe",
+			firstname: "John",
+			lastname: "Doe"
+		}));
+	};
 	const loginHandler = () => {
-		fetchEncodedToken(
-			{
-				email: loginInfo.email,
-				password: loginInfo.password
-			},
-			state,
-			dispatch,
-			navigate,
-			location
-		);
+		if (loginInfo.email.length > 0 && loginInfo.password.length > 0) {
+			fetchEncodedToken(
+				{
+					email: loginInfo.email,
+					password: loginInfo.password
+				},
+				state,
+				dispatch,
+				navigate,
+				location
+			);
+			if (state.isLoggedIn === true) {
+				toast.success("Logged in!", {
+					position: "top-right",
+					autoClose: 3000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "light"
+				});
+			}
+		} else {
+			toast.error("Wrong Credentials!", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light"
+			});
+		}
 	};
 	const signupUserHandler = () => {
-		fetchSignupUser(
-			{
-				email: signupInfo.email,
-				password: signupInfo.password,
-				firstName: signupInfo.firstname,
-				lastName: signupInfo.lastname
-			},
-			dispatch,
-			navigate,
-			location
-		);
+		if (
+			signupInfo.email.length > 0 &&
+			signupInfo.password.length > 0 &&
+			signupInfo.firstname.length > 0 &&
+			signupInfo.lastname.length > 0
+		) {
+			fetchSignupUser(
+				{
+					email: signupInfo.email,
+					password: signupInfo.password,
+					firstName: signupInfo.firstname,
+					lastName: signupInfo.lastname
+				},
+				dispatch,
+				navigate,
+				location
+			);
+			console.log("success");
+		} else {
+			console.log("error");
+			console.log(signupInfo.email);
+			toast.error("Wrong Credentials!", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light"
+			});
+		}
 	};
 	return (
 		<div>
-			<button onClick={() => navigate("/products")}>go back</button>
+			<button onClick={() => navigate("/products")}>Explore Products</button>
 			{pageState === "login" ? (
-				<div>
+				<div className="login-page">
 					<h1>Login</h1>
+
+					<label htmlFor="email">Email address</label>
+					<input
+						required
+						onChange={(event) =>
+							setLoginInfo((prev) => ({ ...prev, email: event.target.value }))
+						}
+						type="email"
+						value={loginInfo.email}
+						name="email"
+						id="email"
+					/>
+
+					<label htmlFor="password">Password</label>
+					<input
+						onChange={(event) =>
+							setLoginInfo((prev) => ({
+								...prev,
+								password: event.target.value
+							}))
+						}
+						type={loginInfo.showPassword ? "text" : "password"}
+						value={loginInfo.password}
+						name="password"
+						id="password"
+						required
+					/>
 					<div>
-						<label htmlFor="email">Email address</label>
 						<input
-							required
-							onChange={(event) =>
-								setLoginInfo((prev) => ({ ...prev, email: event.target.value }))
-							}
-							type="email"
-							value={loginInfo.email}
-							name="email"
-							id="email"
-						/>
-					</div>
-					<div>
-						<label htmlFor="password">Password</label>
-						<input
+							name="password-visibility"
+							id="password-visibility"
+							type="checkbox"
 							onChange={(event) =>
 								setLoginInfo((prev) => ({
 									...prev,
-									password: event.target.value
+									showPassword: event.target.checked
 								}))
 							}
-							type={loginInfo.showPassword ? "text" : "password"}
-							value={loginInfo.password}
-							name="password"
-							id="password"
-							required
+							value={loginInfo.showPassword}
 						/>
-						<div>
-							<input
-								name="password-visibility"
-								id="password-visibility"
-								type="checkbox"
-								onChange={(event) =>
-									setLoginInfo((prev) => ({
-										...prev,
-										showPassword: event.target.checked
-									}))
-								}
-								value={loginInfo.showPassword}
-							/>
-							<label htmlFor="password-visibility">Show Password</label>
-						</div>
+						<label htmlFor="password-visibility">Show Password</label>
 					</div>
-					<div>
-						<button onClick={loginHandler}>Login </button>
-					</div>
-					<button onClick={() => loginAsGuestHandler()}>Login as Guest</button>
+					<p style={{ color: "red" }}>{state.loginError}</p>
+					<ToastContainer />
+					<button onClick={loginHandler}>Login </button>
+					<button onClick={() => loginAsGuestHandler()}>
+						Use Guest Credentials
+					</button>
 					<button onClick={() => setPageState(() => "signup")}>
 						Create New Account
 					</button>
 				</div>
 			) : (
 				<div>
-					<div>
+					<div className="signup-page">
 						<h1>SignUp</h1>
 						<label for="first-name">First Name</label>
 						<input
+							value={signupInfo.firstname}
 							required
 							name="firstname"
 							id="firstname"
@@ -133,6 +192,7 @@ export const LogInPage = () => {
 						/>
 						<label for="last-name">Last Name</label>
 						<input
+							value={signupInfo.lastname}
 							required
 							name="lastname"
 							id="lastname"
@@ -146,6 +206,7 @@ export const LogInPage = () => {
 						/>
 						<label for="email">Email address</label>
 						<input
+							value={signupInfo.email}
 							required
 							name="email"
 							id="email"
@@ -159,6 +220,7 @@ export const LogInPage = () => {
 						/>
 						<label for="password">Password</label>
 						<input
+							value={signupInfo.password}
 							required
 							name="password"
 							id="password"
@@ -170,19 +232,17 @@ export const LogInPage = () => {
 								}))
 							}
 						/>
-						<div>
-							<button onClick={() => signupUserHandler()}>
-								Create New Account
-							</button>
-							<button
-								onClick={() => {
-									loginAsGuestHandler();
-									setPageState(() => "login");
-								}}
-							>
-								Login as Guest
-							</button>
-						</div>
+						<ToastContainer />
+						<button onClick={() => signupUserHandler()}>
+							Create New Account
+						</button>
+						<button
+							onClick={() => {
+								randomDataToSignupHandler();
+							}}
+						>
+							Use Random Credentials to Signup
+						</button>
 
 						<button onClick={() => setPageState(() => "login")}>
 							Already have an Account?
