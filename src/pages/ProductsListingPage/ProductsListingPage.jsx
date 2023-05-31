@@ -11,16 +11,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const ProductsListingPage = () => {
-	const notify = () => toast("Wow so easy!");
 	const { state, dispatch, displayData } = useContext(PageContext);
 	const { isLoading } = state;
-	
+
 	return (
 		<div>
 			{isLoading ? (
 				<>Loading...</>
 			) : (
 				<div className="products-listing-page">
+					<ToastContainer />
 					<main>
 						<nav className="nav-container">
 							<NavBar />

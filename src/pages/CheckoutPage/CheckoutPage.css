@@ -1,0 +1,27 @@
+/** @format */
+
+* {
+	box-sizing: border-box;
+}
+
+.checkout-page {
+	display: grid;
+	gap: 1rem;
+	grid-template-areas:
+		"checkoutAddressList  checkoutPriceDetails "
+		"checkoutAddNewAddress checkoutPriceDetails";
+}
+.checkout-address-list-container {
+	grid-area: checkoutAddressList;
+	/* margin: auto; */
+}
+.checkout-add-new-address-container {
+	grid-area: checkoutAddNewAddress;
+	max-width: 300px;
+	margin: auto;
+}
+.checkout-price-details-container {
+	grid-area: checkoutPriceDetails;
+	width: 350px;
+	margin: auto;
+}

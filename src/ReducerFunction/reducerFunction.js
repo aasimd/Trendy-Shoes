@@ -92,6 +92,8 @@ export const reducerFunction = (state, { type, payload }) => {
 			return { ...state, wishlistData: [...payload] };
 		case "setCartData":
 			return { ...state, cartData: [...payload] };
+		case "setDeliveryAddress":
+			return { ...state, deliveryAddress: payload };
 		default:
 			return state;
 	}

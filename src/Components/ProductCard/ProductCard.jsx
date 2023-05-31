@@ -66,7 +66,11 @@ export const ProductCard = ({ product }) => {
 
 	const { size, price, title, brand, image, _id, inStock, rating } = product;
 	return (
-		<li key={_id} className={!inStock ? "out-of-stock" : ""}>
+		<li
+			key={_id}
+			className={!inStock ? "out-of-stock" : ""}
+			title={inStock ? "" : "Currently out of stock"}
+		>
 			<img
 				width={"100%"}
 				max-height={"200px"}
@@ -111,17 +115,12 @@ export const ProductCard = ({ product }) => {
 						<ul>
 							<br />
 							{size.map((size) => (
-								<SizeListCard
-									size={size}
-									_id={_id}
-									setShowSize={setShowSize}
-								/>
+								<SizeListCard size={size} _id={_id} setShowSize={setShowSize} />
 							))}
 						</ul>
 					</>
 				)}
 			</div>
-
 			<button
 				onClick={() => setShowSize(!showSize)}
 				className="add-to-cart-button"

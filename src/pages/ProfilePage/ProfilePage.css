@@ -135,7 +135,7 @@ nav {
 	flex-direction: column;
 	border-radius: 10px;
 }
-.address-list-section input {
+.address-list-section input[type="text"] {
 	padding: 10px;
 	width: 90%;
 	margin: 3px;
@@ -203,8 +203,9 @@ nav {
 	background-color: rgb(179, 2, 2);
 }
 .add-new-address-container {
-	margin-top: 2rem;
-	width: 350px;
+	align-self: center;
+	margin: 2rem auto;
+	width: 300px;
 	padding: 20px;
 	border-radius: 7px;
 	border: 1px solid;

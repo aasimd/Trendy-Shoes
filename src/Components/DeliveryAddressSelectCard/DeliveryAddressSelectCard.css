@@ -1,0 +1,32 @@
+/** @format */
+
+* {
+	box-sizing: border-box;
+}
+
+#delivery-address-container {
+	text-align: left;
+	padding: 10px 10px 10px 40px;
+	position: relative;
+}
+#delivery-address-container h2 {
+	color: #222222;
+	font-size: 24px;
+}
+#delivery-address-container p {
+	color: #333333;
+	font-size: 18px;
+	line-height: 1.5;
+	font-weight: 500;
+}
+#delivery-address-container input[type="radio"] {
+	position: absolute;
+	left: 10px;
+	top: 0;
+	bottom: 0;
+	padding: 10px;
+	margin: 3px;
+	border-radius: 10px;
+	border: 1px solid #888888;
+	font-size: 14px;
+}

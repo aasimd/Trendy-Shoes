@@ -162,6 +162,21 @@ export const fetchAddItemToCart = async (dispatch, productToAdd) => {
 		console.error("Failed to add item");
 	}
 };
+export const getCartData = async (dispatch) => {
+	try {
+		const encodedToken = localStorage.getItem("encodedtoken");
+		const response = await fetch(`/api/user/cart`, {
+			method: "GET",
+			headers: {
+				authorization: encodedToken
+			}
+		});
+		const { cart } = await response.json();
+		dispatch({ type: "setCartData", payload: cart });
+	} catch (e) {
+		console.error(e.message);
+	}
+};
 export const removeItemFromCart = async (dispatch, id) => {
 	try {
 		const encodedToken = localStorage.getItem("encodedtoken");

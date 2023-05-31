@@ -1,14 +1,17 @@
 /** @format */
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import React, { useContext } from "react";
 import { PageContext } from "../../contexts/PageContext";
 import { fetchAddItemToCart } from "../../FetchFunctions/FetchFunctions";
 import "../ProductCard/ProductCard.css";
 export const SizeListCard = ({ size, _id, setShowSize }) => {
 	const { state, dispatch, displayData } = useContext(PageContext);
-	// const [showSize, setShowSize] = useState(false);
 	const AddToCartHandler = (id, event) => {
-		const productToAdd = displayData.find((product) => product._id === id);
+		const productToAdd = state.productsData.find(
+			(product) => product._id === id
+		);
 		const productWithSelectedSize = {
 			...productToAdd,
 			selectedSize: event.target.value,
@@ -17,6 +20,16 @@ export const SizeListCard = ({ size, _id, setShowSize }) => {
 		};
 		fetchAddItemToCart(dispatch, productWithSelectedSize);
 		setShowSize(false);
+		toast.success("Successfully Added to cart!", {
+			position: "bottom-right",
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: 3,
+			theme: "light"
+		});
 	};
 	const sizeButtonStylesClass = (size, id) => {
 		const findShoeInCart = state.cartData.find(
@@ -36,6 +49,11 @@ export const SizeListCard = ({ size, _id, setShowSize }) => {
 	};
 	return (
 		<button
+			title={
+				disableSizeButton(size, _id)
+					? "Already Added to Cart"
+					: "Add Size to Cart"
+			}
 			className={
 				sizeButtonStylesClass(size, _id) ? "in-cart-size" : "not-in-cart-size"
 			}

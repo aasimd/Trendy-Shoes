@@ -731,6 +731,7 @@ export const products = [
 		categoryName: "Sandal",
 		gender: "Men",
 		size: [7, 8, 9, 10],
+		
 		image:
 			"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/9024257/2021/8/13/f39d2a01-1386-4fda-93ad-1a48162f65281628859356302-Roadster-Men-Black-Sports-Sandals-3371628859355825-2.jpg",
 		inStock: false,

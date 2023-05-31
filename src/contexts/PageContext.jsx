@@ -44,7 +44,8 @@ export const PageContextProvider = ({ children }) => {
 		],
 		userInfo: {},
 		wishlistData: [],
-		cartData: []
+		cartData: [],
+		deliveryAddress: {}
 	});
 
 	useEffect(() => {
