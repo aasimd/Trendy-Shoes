@@ -55,3 +55,16 @@
 	font-weight: 700;
 	font-size: 20px;
 }
+.place-order-btn {
+	margin-top: 20px;
+	font-size: 18px;
+	padding: 5px 10px;
+	color: white;
+	background-color: var(--primary-color);
+	border: none;
+	border-radius: 10px;
+	font-weight: 600;
+}
+.place-order-btn:hover {
+	background-color: var(--primary-color-dark);
+}

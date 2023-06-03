@@ -4,10 +4,10 @@ import React, { useState, useContext } from "react";
 import { PageContext } from "../../contexts/PageContext";
 import {
 	fetchAddItemToCart,
+	removeItemFromWishlist,
 	fetchAddItemToWishlist,
 	fetchSelectedProduct,
-	getWishlistData,
-	removeItemFromWishlist
+	getWishlistData
 } from "../../FetchFunctions/FetchFunctions";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -68,7 +68,7 @@ export const ProductCard = ({ product }) => {
 	return (
 		<li
 			key={_id}
-			className={!inStock ? "out-of-stock" : ""}
+			className={!inStock ? "out-of-stock-product" : "instock-product"}
 			title={inStock ? "" : "Currently out of stock"}
 		>
 			<img
@@ -108,17 +108,26 @@ export const ProductCard = ({ product }) => {
 					<i class="fa-solid fa-heart" style={{ color: "white" }}></i>
 				)}
 			</button>
-			<div className="size-list-to-add-to-cart">
-				{showSize && (
-					<>
-						Select your shoe size:
-						<ul>
-							<br />
-							{size.map((size) => (
-								<SizeListCard size={size} _id={_id} setShowSize={setShowSize} />
-							))}
-						</ul>
-					</>
+			<div
+				className={
+					showSize
+						? "size-list-to-add-to-cart"
+						: "size-list-to-add-to-cart-hidden"
+				}
+			>
+				<p>
+					Select your shoe size <br />
+					(UK Size)
+				</p>
+				{inStock ? (
+					<ul>
+						<br />
+						{size.map((size) => (
+							<SizeListCard size={size} _id={_id} setShowSize={setShowSize} />
+						))}
+					</ul>
+				) : (
+					""
 				)}
 			</div>
 			<button

@@ -21,10 +21,10 @@ export const ProductsListingPage = () => {
 			) : (
 				<div className="products-listing-page">
 					<ToastContainer />
+					<nav className="nav-container">
+						<NavBar />
+					</nav>
 					<main>
-						<nav className="nav-container">
-							<NavBar />
-						</nav>
 						<aside className="filters-container">
 							<Filters />
 						</aside>

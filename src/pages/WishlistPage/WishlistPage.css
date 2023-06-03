@@ -3,11 +3,15 @@
 * {
 	box-sizing: border-box;
 }
-.wishlist-list {
-	display: grid;
-	justify-content: center;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	grid-gap: 1.5rem;
+/* .wishlist-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	padding: 1rem;
+} */
+.products-list .wishlist-list {
+	display: flex;
+	flex-wrap: wrap;
 	gap: 1.5rem;
 	padding: 1rem;
 }

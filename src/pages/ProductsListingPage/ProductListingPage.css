@@ -2,22 +2,23 @@
 * {
 	box-sizing: border-box;
 }
-aside {
+.products-listing-page aside {
 	grid-area: aside;
+	width: 260px;
 }
-
-nav {
+.products-listing-page nav {
 	grid-area: nav;
 }
-section {
-	grid-area: section;
+.products-listing-page section {
+	display: flex;
 }
-main {
-	background-color:white;
-	display: grid;
-	grid-template-areas:
-		"nav nav nav"
-		"aside section section"
-		"aside section section";
+.products-listing-page .products-list ul{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	padding: 1rem;
 }
-
+.products-listing-page main {
+	background-color: white;
+	display: flex;
+}

@@ -4,7 +4,10 @@ import React, { useContext } from "react";
 import { AddressCard } from "../../Components/AddressCard/AddressCard";
 import { PageContext } from "../../contexts/PageContext";
 import "./DeliveryAddressSelectCard.css";
-export const DeliveryAddressSelectCard = () => {
+export const DeliveryAddressSelectCard = ({
+	deliveryAddress,
+	setDeliveryAddress
+}) => {
 	const { state, dispatch } = useContext(PageContext);
 	return (
 		<div>
@@ -27,7 +30,7 @@ export const DeliveryAddressSelectCard = () => {
 													payload: address
 												})
 											}
-										/>
+											/>
 										<h2>{name}</h2>
 										<p>
 											{street}

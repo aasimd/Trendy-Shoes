@@ -7,7 +7,8 @@ import {
 	getWishlistData,
 	removeItemFromWishlist
 } from "../../FetchFunctions/FetchFunctions.js";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { ProductCard } from "../../Components/ProductCard/ProductCard";
 export const WishlistPage = () => {
 	const { state, dispatch } = useContext(PageContext);
@@ -17,6 +18,7 @@ export const WishlistPage = () => {
 
 	return (
 		<div>
+			<ToastContainer />
 			<nav>
 				<NavBar />
 			</nav>
@@ -24,7 +26,7 @@ export const WishlistPage = () => {
 			<div>
 				{state.wishlistData.length > 0 ? (
 					<section className="products-list">
-						<ul style={{ marginLeft: "10px" }}>
+						<ul className="wishlist-list">
 							{state.wishlistData.map((product) => (
 								<ProductCard product={product} />
 							))}

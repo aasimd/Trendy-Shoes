@@ -162,6 +162,46 @@ export const fetchAddItemToCart = async (dispatch, productToAdd) => {
 		console.error("Failed to add item");
 	}
 };
+export const fetchCartIncrement = async (dispatch, id) => {
+	try {
+		const encodedToken = localStorage.getItem("encodedtoken");
+		const response = await fetch(`/api/user/cart/${id}`, {
+			method: "POST",
+			body: JSON.stringify({
+				action: {
+					type: "increment"
+				}
+			}),
+			headers: {
+				authorization: `${encodedToken}`
+			}
+		});
+		const data = await response.json();
+		dispatch({ type: "setCartData", payload: data.cart });
+	} catch (e) {
+		console.error("Failed to increase item quantity");
+	}
+};
+export const fetchCartDecrement = async (dispatch, id) => {
+	try {
+		const encodedToken = localStorage.getItem("encodedtoken");
+		const response = await fetch(`/api/user/cart/${id}`, {
+			method: "POST",
+			body: JSON.stringify({
+				action: {
+					type: "decrement"
+				}
+			}),
+			headers: {
+				authorization: `${encodedToken}`
+			}
+		});
+		const data = await response.json();
+		dispatch({ type: "setCartData", payload: data.cart });
+	} catch (e) {
+		console.error("Failed to decrease item quantity");
+	}
+};
 export const getCartData = async (dispatch) => {
 	try {
 		const encodedToken = localStorage.getItem("encodedtoken");

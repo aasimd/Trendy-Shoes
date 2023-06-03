@@ -12,9 +12,13 @@ export const CartPage = () => {
 	const { state, dispatch } = useContext(PageContext);
 	const navigate = useNavigate();
 	const TotalPriceOfCartProducts = state.cartData.reduce(
-		(acc, curr) => acc + curr.price * curr.quantity,
+		(acc, curr) => acc + curr.price * curr.qty,
 		0
 	);
+	const clearCart = () => {
+		const idArray = state.cartData.map(({ _id }) => _id);
+		idArray.forEach((id) => removeItemFromCart(dispatch, id));
+	};
 	return (
 		<div className="cart-page">
 			<nav>
@@ -24,6 +28,9 @@ export const CartPage = () => {
 				<>
 					<h1 className="cart-header">Your Cart</h1>
 					<div className="cart-products-list">
+						<button className="clear-cart-btn" onClick={() => clearCart()}>
+							Clear Cart
+						</button>
 						<ul>
 							{state.cartData.map((product) => (
 								<CartProductCard product={product} />
@@ -37,9 +44,9 @@ export const CartPage = () => {
 							{state.cartData.map((shoe) => (
 								<li>
 									<p>
-										{shoe.brand} {shoe.title} ({shoe.quantity})
+										{shoe.brand} {shoe.title} ({shoe.qty})
 									</p>
-									<p>{shoe.price * shoe.quantity}</p>
+									<p>{shoe.price * shoe.qty}</p>
 								</li>
 							))}
 						</ul>

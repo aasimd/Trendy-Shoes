@@ -127,3 +127,17 @@
 	cursor: pointer;
 	transform: scale(1.1);
 }
+.clear-cart-btn {
+	color: #333333;
+	background-color: white;
+	border: 1px solid #999999;
+	cursor: pointer;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 20px;
+}
+.clear-cart-btn:hover {
+	color: red;
+	border: 1px solid red;
+}

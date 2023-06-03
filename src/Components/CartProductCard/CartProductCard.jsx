@@ -9,7 +9,9 @@ import {
 	getWishlistData,
 	removeItemFromCart,
 	removeItemFromWishlist,
-	fetchSelectedProduct
+	fetchSelectedProduct,
+	fetchCartIncrement,
+	fetchCartDecrement
 } from "../../FetchFunctions/FetchFunctions";
 import { useNavigate } from "react-router";
 export const CartProductCard = ({ product }) => {
@@ -62,20 +64,10 @@ export const CartProductCard = ({ product }) => {
 		});
 	};
 	const quantityIncrementHandler = (id) => {
-		const newCartData = state.cartData.map((product) =>
-			product._id === id
-				? { ...product, quantity: product.quantity + 1 }
-				: product
-		);
-		dispatch({ type: "setCartData", payload: newCartData });
+		fetchCartIncrement(dispatch, id);
 	};
 	const quantityDecrementHandler = (id) => {
-		const newCartData = state.cartData.map((product) =>
-			product._id === id
-				? { ...product, quantity: product.quantity - 1 }
-				: product
-		);
-		dispatch({ type: "setCartData", payload: newCartData });
+		fetchCartDecrement(dispatch, id);
 	};
 	const productClickHandler = (_id) => {
 		const id = _id.slice(0, _id.length - selectedSize.length);
@@ -112,13 +104,13 @@ export const CartProductCard = ({ product }) => {
 							<b>Quantity: </b>
 							<button
 								onClick={() =>
-									product.quantity !== 1 && quantityDecrementHandler(_id)
+									product.qty !== 1 && quantityDecrementHandler(_id)
 								}
 								className="quantity-change-buttons"
 							>
 								<i className="fas fa-minus-circle"></i>
 							</button>{" "}
-							<p className="product-quantity">{product.quantity}</p>
+							<p className="product-quantity">{product.qty}</p>
 							<button
 								onClick={() => quantityIncrementHandler(_id)}
 								className="quantity-change-buttons"
@@ -130,7 +122,7 @@ export const CartProductCard = ({ product }) => {
 							className="cart-product-remove-button"
 							onClick={() => removeHandler(product._id, product.selectedSize)}
 						>
-							Remove
+							<i class="fa-regular fa-trash-can"></i> Remove
 						</button>
 						{state.wishlistData.findIndex(
 							(product) =>
@@ -142,14 +134,15 @@ export const CartProductCard = ({ product }) => {
 								}}
 								className="cart-add-to-wishlist-button"
 							>
-								Add to Wishlist
+								<i class="fa-regular fa-heart"></i> Wishlist
 							</button>
 						) : (
 							<button
 								onClick={() => RemoveFromWishlistHandler(_id)}
 								className="cart-add-to-wishlist-button"
 							>
-								Remove from Wishlist
+								<i class="fa-solid fa-heart" style={{ color: "#ff0000" }}></i>{" "}
+								Wishlist
 							</button>
 						)}
 					</article>

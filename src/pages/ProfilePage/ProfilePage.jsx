@@ -12,8 +12,9 @@ export const ProfilePage = () => {
 	const [pageState, setPageState] = useState("ProfileInfo");
 	return (
 		<div>
+			<ToastContainer />
 			<div className="profile-page">
-				<nav>
+				<nav className="profile-nav">
 					<NavBar />
 				</nav>
 				<div className="profile-buttons">

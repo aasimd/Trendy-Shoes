@@ -3,11 +3,11 @@
 * {
 	box-sizing: border-box;
 }
-nav {
-	grid-template: nav;
+.profile-page .profile-nav {
+	grid-area: nav;
 }
-.profile-content {
-	grid-template: maincontent;
+.profile-page .profile-content {
+	grid-area: maincontent;
 }
 .profile-page {
 	display: grid;
@@ -18,7 +18,7 @@ nav {
 }
 /* Profile buttons */
 .profile-buttons {
-	grid-template: asidecontent;
+	grid-area: asidecontent;
 	display: flex;
 	width: 200px;
 	flex-direction: column;
