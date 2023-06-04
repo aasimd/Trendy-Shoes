@@ -1,9 +1,8 @@
 /** @format */
 import "./WishlistPage.css";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { NavBar } from "../../Components/NavBar/NavBar";
 import { PageContext } from "../../contexts/PageContext";
-import { getWishlistData } from "../../FetchFunctions/FetchFunctions.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ProductCard } from "../../Components/ProductCard/ProductCard";
