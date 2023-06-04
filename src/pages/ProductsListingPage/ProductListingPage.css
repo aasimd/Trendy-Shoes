@@ -12,7 +12,7 @@
 .products-listing-page section {
 	display: flex;
 }
-.products-listing-page .products-list ul{
+.products-listing-page .products-list ul {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1.5rem;
@@ -21,4 +21,12 @@
 .products-listing-page main {
 	background-color: white;
 	display: flex;
+}
+.no-data-found {
+	position: absolute;
+	top: 100px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	font-size: 24px;
 }

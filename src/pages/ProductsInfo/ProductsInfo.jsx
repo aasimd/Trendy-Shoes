@@ -11,6 +11,8 @@ import "react-toastify/dist/ReactToastify.css";
 import React, { useContext, useState } from "react";
 import { PageContext } from "../../contexts/PageContext";
 import "./ProductsInfo.css";
+import { NavBar } from "../../Components/NavBar/NavBar";
+import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
 export const ProductInfo = () => {
 	const { state, dispatch } = useContext(PageContext);
 	const {
@@ -136,77 +138,89 @@ export const ProductInfo = () => {
 			{state.isLoading ? (
 				<>Loading...</>
 			) : (
-				<div className="product-info-page">
-					<ToastContainer />
-					<div className="product-info-img-container">
-						<img src={image} alt={title} />
-					</div>
-					<article>
-						<h1 className="product-info-brand">{brand}</h1>
-						<h2 className="product-info-title">{title}</h2>
-						<p className="product-info-rating">
-							<i class="fa-solid fa-star" style={{ color: "#ffc800" }}></i>{" "}
-							{rating}/5 Ratings
-						</p>
-						<hr />
-						<div className="product-info-price">
-							<h1>
-								{price} <span>{parseInt(price * 1.2)}</span>
-								<h3>(20% OFF)</h3>
-							</h1>
+				<div>
+					<nav>
+						<NavBar />
+					</nav>
+					<div className="product-info-page">
+						<ToastContainer />
+
+						<div className="product-info-img-container">
+							<img src={image} alt={title} />
 						</div>
-						<hr />
-						<p className="product-info-category">
-							<b>Category: </b> {categoryName}
-						</p>
-						<p className="product-info-inStock">
-							<b>Avaibility:</b> {inStock ? "In Stock" : "Out of Stock"}
-						</p>
-						<div className="product-info-size">
-							<b>Select Size (UK Size) </b>
-							<ul>
-								{size.map((size) => (
-									<button
-										className={
-											selectedSizeFromProductInfo === size
-												? "selected-product-info-size-button"
-												: "product-info-size-button"
-										}
-										onClick={() => {
-											selectedSizeFromProductInfo === size
-												? setSelectedSizeFromProductInfo(() => undefined)
-												: setSelectedSizeFromProductInfo(() => size);
-										}}
-									>
-										{size}
-									</button>
-								))}
-							</ul>
-						</div>
-						<div className="add-to-cart-wishlist-buttons">
-							<button onClick={() => AddToCartHandler(_id)}>
-								<i class="fa-solid fa-cart-plus"></i> Add to Cart
-							</button>
-							<button
-								onClick={() => {
-									state.wishlistData.findIndex(
+						<article>
+							<h1 className="product-info-brand">{brand}</h1>
+							<h2 className="product-info-title">{title}</h2>
+							<p className="product-info-rating">
+								<i class="fa-solid fa-star" style={{ color: "#ffc800" }}></i>{" "}
+								{rating}/5 Ratings
+							</p>
+							<hr />
+							<div className="product-info-price">
+								<h1>
+									{price} <span>{parseInt(price * 1.2)}</span>
+									<h3>(20% OFF)</h3>
+								</h1>
+							</div>
+							<hr />
+							<p className="product-info-category">
+								<b>Category: </b> {categoryName}
+							</p>
+							<p className="product-info-inStock">
+								<b>Avaibility:</b> {inStock ? "In Stock" : "Out of Stock"}
+							</p>
+							<div className="product-info-size">
+								<b>Select Size (UK Size) </b>
+								<ul>
+									{size.map((size) => (
+										<button
+											className={
+												selectedSizeFromProductInfo === size
+													? "selected-product-info-size-button"
+													: "product-info-size-button"
+											}
+											onClick={() => {
+												selectedSizeFromProductInfo === size
+													? setSelectedSizeFromProductInfo(() => undefined)
+													: setSelectedSizeFromProductInfo(() => size);
+											}}
+										>
+											{size}
+										</button>
+									))}
+								</ul>
+							</div>
+							<div className="add-to-cart-wishlist-buttons">
+								<button onClick={() => AddToCartHandler(_id)}>
+									<i class="fa-solid fa-cart-plus"></i> Add to Cart
+								</button>
+								<button
+									onClick={() => {
+										state.wishlistData.findIndex(
+											(product) => product._id === _id
+										) >= 0
+											? RemoveFromWishlistHandler(_id)
+											: AddToWishlistHandler(_id);
+									}}
+								>
+									{state.wishlistData.findIndex(
 										(product) => product._id === _id
-									) >= 0
-										? RemoveFromWishlistHandler(_id)
-										: AddToWishlistHandler(_id);
-								}}
-							>
-								{state.wishlistData.findIndex(
-									(product) => product._id === _id
-								) >= 0 ? (
-									<i class="fa-solid fa-heart" style={{ color: "#ff0000" }}></i>
-								) : (
-									<i class="fa-regular fa-heart"></i>
-								)}{" "}
-								Wishlist
-							</button>
-						</div>
-					</article>
+									) >= 0 ? (
+										<i
+											class="fa-solid fa-heart"
+											style={{ color: "#ff0000" }}
+										></i>
+									) : (
+										<i class="fa-regular fa-heart"></i>
+									)}{" "}
+									Wishlist
+								</button>
+							</div>
+						</article>
+					</div>
+					<footer>
+						<FooterCard />
+					</footer>
 				</div>
 			)}
 		</div>

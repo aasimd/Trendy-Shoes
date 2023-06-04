@@ -10,6 +10,7 @@
 	grid-template-areas:
 		"checkoutAddressList  checkoutPriceDetails "
 		"checkoutAddNewAddress checkoutPriceDetails";
+	padding: 30px;
 }
 .checkout-address-list-container {
 	grid-area: checkoutAddressList;

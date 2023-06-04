@@ -66,7 +66,9 @@ export const reducerFunction = (state, { type, payload }) => {
 				showOutOfStock: false,
 				selectedRating: "",
 				selectedSize: "all",
-				sortType: "reset"
+				sortType: "reset",
+				showSearchResults: false,
+				userInput: ""
 			};
 		case "setLogin":
 			return {

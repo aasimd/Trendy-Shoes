@@ -12,27 +12,13 @@
 .products-list li p {
 	flex-grow: inherit;
 }
-/* .products-list ul {
-	display: grid;
-	justify-content: center;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 1rem;
-	padding: 0px 5px;
-	list-style: none;
-} */
-/* .products-list {
-	display: grid;
-	justify-content: center;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	grid-gap: 1.5rem;
-	gap: 1.5rem;
-	padding: 1rem;
-} */
 .products-list ul li {
 	display: flex;
 	flex-direction: column;
-	min-width: 200px;
-	max-width: 250px;
+	min-width: 240px;
+	max-width: 290px;
+	max-height: 390px;
+	min-height: 380px;
 	flex-basis: 20%;
 	flex-grow: 1;
 	flex-shrink: 1;

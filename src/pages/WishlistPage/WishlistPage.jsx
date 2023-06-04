@@ -10,12 +10,14 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ProductCard } from "../../Components/ProductCard/ProductCard";
+import { NavLink } from "react-router-dom";
+import logo from "../../images/emptyWishlis.svg";
+import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
 export const WishlistPage = () => {
 	const { state, dispatch } = useContext(PageContext);
 	useEffect(() => {
 		getWishlistData(dispatch);
 	}, []);
-
 	return (
 		<div>
 			<ToastContainer />
@@ -33,9 +35,27 @@ export const WishlistPage = () => {
 						</ul>
 					</section>
 				) : (
-					<h1>Your wishlist is empty</h1>
+					<div className="empty-wishlist">
+						<div>
+							<h1>
+								Your wishlist is empty <br />
+								<span>
+									Add Products to wishlist from{" "}
+									<NavLink to="/products" title="Explore products">
+										Explore
+									</NavLink>
+								</span>
+							</h1>
+						</div>
+						<div>
+							<img src={logo} alt="wishlist is empty" />
+						</div>
+					</div>
 				)}
 			</div>
+			<footer>
+				<FooterCard />
+			</footer>
 		</div>
 	);
 };

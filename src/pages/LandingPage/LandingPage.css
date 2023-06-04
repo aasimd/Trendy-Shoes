@@ -5,47 +5,108 @@
 	padding: 0;
 }
 .view-all-banner {
-	width: 900px;
-	height: 600px;
-	border: 1px solid;
+	display: grid;
+	grid-area: viewAll;
+}
+.view-all-banner img {
+	width: 100%;
+	border-radius: 20px;
+}
+.category-banner:nth-of-type(1) {
+	grid-area: category1;
+}
+.category-banner:nth-of-type(2) {
+	grid-area: category2;
+}
+.category-banner:nth-of-type(3) {
+	grid-area: category3;
+}
+.category-banner:nth-of-type(4) {
+	grid-area: category4;
+}
+.category-banner:nth-of-type(5) {
+	grid-area: category5;
+}
+.landing-page-menu {
+	display: grid;
+	grid-template-areas:
+		"viewAll viewAll category5"
+		"viewAll viewAll category2"
+		"category4 category3 category1";
+	width: fit-content;
+	margin: 20px auto;
+	gap: 1rem;
+}
+.landing-page-menu li {
+	list-style: none;
+}
+.view-all-banner {
+	width: 600px;
+	height: 400px;
 	margin: auto;
 	inset: 0;
 	left: 0;
 	right: 0;
+	border-radius: 20px;
 	object-fit: cover;
 	object-position: 60% 60%;
+	transition: 0.3s;
+	box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+}
+.view-all-banner h1 {
+	margin-top: -50px;
+	background-color: rgba(0, 0, 0, 0.5);
+	filter: blur(0.2px);
+	color: white;
+	cursor: pointer;
+	text-transform: uppercase;
+	padding: 10px auto;
+}
+.view-all-banner:hover {
+	transform: scale(1.02);
+	opacity: 1;
+	transition: ease-in 0.3s;
+	box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.4);
 }
 .view-all-banner img {
 	width: 100%;
 }
+.category-banner h2 {
+	margin-top: -50px;
+	background-color: rgba(0, 0, 0, 0.5);
+	filter: blur(0.2px);
+	color: white;
+	cursor: pointer;
+	text-transform: uppercase;
+	padding: 10px auto;
+}
+.category-banner {
+	width: 295px;
+	height: 188px;
+	inset: 0;
+	left: 0;
+	right: 0;
+	transition: 0.3s;
+	border-radius: 20px;
+	box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+}
+.category-banner li {
+	list-style: none;
+}
+.category-banner img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 60% 60%;
+	border-radius: 20px;
+}
+.category-banner:hover {
+	transform: scale(1.02);
+	opacity: 1;
+	transition: ease-in 0.3s;
+	box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.4);
+}
 .view-all-banner h1 {
 	position: relative;
 	top: -4rem;
-}
-.categories {
-	margin-top: 40px;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-}
-.categories ul {
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
-	margin: auto;
-}
-
-.categories ul li {
-	display: flex;
-	flex-direction: column;
-	max-width: 200px;
-	max-height: 200px;
-	flex-grow: 1;
-}
-.categories ul li img {
-	max-width: 100%;
-	max-height: 100%;
-	justify-content: space-between;
-	object-fit: cover;
-	object-position: 50% 50%;
 }

@@ -3,7 +3,7 @@
 .product-info-page {
 	display: grid;
 	grid-template-areas: "imgContainer articleContainer";
-	margin: 10px auto;
+	margin: 30px auto 50px auto;
 	gap: 1rem;
 	align-items: center;
 	position: relative;
@@ -19,16 +19,18 @@
 	right: -100px;
 }
 .product-info-img-container img {
-	width: 100%;
+	width: 80%;
 	height: 100%;
+	object-fit: contain;
+	object-position: 50% 50%;
 }
 .product-info-page article {
 	position: relative;
 	float: right;
-	left: -40px;
+	left: -20px;
 	margin-left: -10px;
 	grid-area: articleContainer;
-	max-width: 400px;
+	max-width: 500px;
 	text-align: left;
 	padding: 20px 20px 20px 40px;
 	display: flex;

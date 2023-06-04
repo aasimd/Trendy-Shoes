@@ -7,6 +7,7 @@ import { PageContext } from "../../contexts/PageContext";
 import { NavBar } from "../../Components/NavBar/NavBar";
 import { AddressListCard } from "../../Components/AddressListCard/AddressListCard";
 import { AddNewAddressCard } from "../../Components/AddNewAddressCard/AddNewAddressCard";
+import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
 export const ProfilePage = () => {
 	const { state, dispatch } = useContext(PageContext);
 	const [pageState, setPageState] = useState("ProfileInfo");
@@ -80,6 +81,9 @@ export const ProfilePage = () => {
 					)}
 				</div>
 			</div>
+			<footer>
+				<FooterCard />
+			</footer>
 		</div>
 	);
 };

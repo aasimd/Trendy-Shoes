@@ -27,7 +27,7 @@
 	position: relative;
 	top: 0px;
 	bottom: 0px;
-	height: 120vh;
+	min-height: 80vh;
 }
 .profile-buttons button {
 	transition: 0.2s;
@@ -56,7 +56,7 @@
 .user-profile-section {
 	width: 450px;
 	height: 300px;
-	margin: auto;
+	margin: 30px auto;
 	position: relative;
 	top: 0;
 	bottom: 0;
@@ -108,6 +108,7 @@
 	flex-direction: column;
 }
 .address-section {
+	margin-top: 30px;
 	display: grid;
 	grid-template-areas: "addresslist addnewaddress";
 	gap: 1rem;

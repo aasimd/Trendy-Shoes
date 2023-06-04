@@ -9,6 +9,7 @@ import { PageContext } from "../../contexts/PageContext";
 import { useLocation, useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { NavBar } from "../../Components/NavBar/NavBar";
 
 export const LogInPage = () => {
 	const location = useLocation();
@@ -116,7 +117,9 @@ export const LogInPage = () => {
 	};
 	return (
 		<div>
-			<button onClick={() => navigate("/products")}>Explore Products</button>
+			<nav>
+				<NavBar />
+			</nav>
 			{pageState === "login" ? (
 				<div className="login-page">
 					<h1>Login</h1>

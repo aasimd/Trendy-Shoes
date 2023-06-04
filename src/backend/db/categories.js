@@ -22,7 +22,7 @@ export const categories = [
 		description:
 			"A shoe designed to be worn for sports, exercising, or recreational activity, as racquetball, jogging, or aerobic dancing..",
 		image:
-			"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_1050,h_1050/global/106713/04/sv01/fnd/IND/fmt/png/PUMA-22-FH-Rubber-Unisex-Cricket-Shoes"
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f4882d178d824972931facc4011e6941_9366/Ultraboost_21_Shoes_White_S23840_01_standard.jpg"
 	},
 	{
 		_id: uuid(),
@@ -30,7 +30,7 @@ export const categories = [
 		description:
 			"A shoe that is suitable for wearing with formal clothes: Students are required to wear a tie, blazer, khakis, and dress shoes.",
 		image:
-			"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/18787626/2022/6/20/a4eec8a7-deb8-44f3-a3b1-86c9e897aaaa1655717938087AllenSollyMenBrownSolidOxfordFormalShoes2.jpg"
+			"https://wallpapers.com/images/hd/shop-display-of-mens-fashion-n5l9h51qxeollg2u.jpg"
 	},
 	{
 		_id: uuid(),
@@ -38,6 +38,6 @@ export const categories = [
 		description:
 			"Sandals are an open type of footwear, with a sole held to the wearer's foot by straps or thongs passing over the instep and around the ankle. Good for Rains.",
 		image:
-			"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/18737874/2022/11/25/eb69810c-664b-4fc8-9502-30392199edee1669352826643-ADIDAS-Men-Sandals-8331669352826253-1.jpg"
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/635ebea2d7c1424b899baf580080a4d3_9366/CRUZIO_M_Black_GB2943_01_standard.jpg"
 	}
 ];

@@ -257,6 +257,18 @@ export const products = [
 	},
 	{
 		_id: uuid(),
+		title: "Air Jordan 1 Retro High OG 'Turbo Green'",
+		brand: "Nike",
+		price: 12999,
+		categoryName: "Casual",
+		gender: "Men",
+		rating: 4.95,
+		size: [7, 8, 9, 10],
+		image: "https://i.ebayimg.com/images/g/bYgAAOSwLVFioSgW/s-l400.jpg",
+		inStock: true
+	},
+	{
+		_id: uuid(),
 		title: "Men's Wingtip Brogues",
 		brand: "Church's",
 		price: 4500,
