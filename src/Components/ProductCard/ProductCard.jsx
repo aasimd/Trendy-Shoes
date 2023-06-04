@@ -115,17 +115,19 @@ export const ProductCard = ({ product }) => {
 						: "size-list-to-add-to-cart-hidden"
 				}
 			>
-				<p>
-					Select your shoe size <br />
-					(UK Size)
-				</p>
 				{inStock ? (
-					<ul>
-						<br />
-						{size.map((size) => (
-							<SizeListCard size={size} _id={_id} setShowSize={setShowSize} />
-						))}
-					</ul>
+					<>
+						<p>
+							Select your shoe size <br />
+							(UK Size)
+						</p>
+						<ul>
+							<br />
+							{size.map((size) => (
+								<SizeListCard size={size} _id={_id} setShowSize={setShowSize} />
+							))}
+						</ul>
+					</>
 				) : (
 					""
 				)}

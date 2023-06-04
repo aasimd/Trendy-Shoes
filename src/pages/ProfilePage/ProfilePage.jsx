@@ -84,6 +84,7 @@ export const ProfilePage = () => {
 			<footer>
 				<FooterCard />
 			</footer>
+			
 		</div>
 	);
 };

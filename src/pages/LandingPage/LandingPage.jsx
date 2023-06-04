@@ -1,9 +1,9 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useContext } from "react";
-
+import { ProgressBar } from "react-loader-spinner";
 import { NavBar } from "../../Components/NavBar/NavBar";
 import { PageContext } from "../../contexts/PageContext";
 import { fetchSelectedCategory } from "../../FetchFunctions/FetchFunctions";
@@ -26,45 +26,60 @@ export const LandingPage = () => {
 		navigate("/products");
 	};
 	return (
-		<div className="landing-page">
-			<nav>
-				<NavBar />
-			</nav>
+		<div>
+			<div
+				className={state.isLoading ? "loader-spinner" : "loader-spinner-hidden"}
+			>
+				<ProgressBar
+					height="100px"
+					width="400px"
+					ariaLabel="progress-bar-loading"
+					wrapperStyle={{}}
+					wrapperClass="progress-bar-wrapper"
+					borderColor="#F4442E"
+					barColor="#51E5FF"
+				/>
+			</div>
+			<div className="landing-page">
+				<nav>
+					<NavBar />
+				</nav>
 
-			<div className="landing-page-menu">
-				<div className="view-all-banner">
-					<img
-						onClick={viewAllClickHandler}
-						src="https://hips.hearstapps.com/hmg-prod/images/cushioned-shoes-15408-1632754154.jpg"
-						alt="view-all-banner"
-					/>
-					<h1>View All Products</h1>
+				<div className="landing-page-menu">
+					<div className="view-all-banner">
+						<img
+							onClick={viewAllClickHandler}
+							src="https://hips.hearstapps.com/hmg-prod/images/cushioned-shoes-15408-1632754154.jpg"
+							alt="view-all-banner"
+						/>
+						<h1>View All Products</h1>
+					</div>
+					{state.categories.map((category) => {
+						const { image, categoryName, _id, description } = category;
+						return (
+							<li key={_id} onClick={() => categoryClickHandler(_id)}>
+								<div className="category-banner">
+									<img src={image} />
+									<h2>{categoryName}</h2>
+								</div>
+							</li>
+						);
+					})}
+					<div
+						className="category-banner"
+						onClick={() => highestRatedShoesHandler()}
+					>
+						<img src="https://www.kicksonfire.com/wp-content/uploads/2019/02/Air-Jordan-1-Retro-High-OG-Turbo-Green-2.jpg?x58464" />
+						<h2>Highest Rated</h2>
+					</div>
 				</div>
-				{state.categories.map((category) => {
-					const { image, categoryName, _id, description } = category;
-					return (
-						<li key={_id} onClick={() => categoryClickHandler(_id)}>
-							<div className="category-banner">
-								<img src={image} />
-								<h2>{categoryName}</h2>
-							</div>
-						</li>
-					);
-				})}
-				<div
-					className="category-banner"
-					onClick={() => highestRatedShoesHandler()}
-				>
-					<img src="https://www.kicksonfire.com/wp-content/uploads/2019/02/Air-Jordan-1-Retro-High-OG-Turbo-Green-2.jpg?x58464" />
-					<h2>Highest Rated</h2>
+				<div>
+					<ServicesCard />
 				</div>
+				<footer>
+					<FooterCard />
+				</footer>
 			</div>
-			<div>
-				<ServicesCard />
-			</div>
-			<footer>
-				<FooterCard />
-			</footer>
 		</div>
 	);
 };

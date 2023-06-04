@@ -8,7 +8,6 @@ import {
 	fetchCategories,
 	fetchProductsData
 } from "../FetchFunctions/FetchFunctions";
-
 export const PageContext = createContext();
 
 export const PageContextProvider = ({ children }) => {

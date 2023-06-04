@@ -14,7 +14,7 @@ export const ServicesCard = () => {
 					</li>
 					<li>
 						<p>
-							<i className="fa-solid fa-medal"></i> <b>Quality Product</b>
+							<i className="fa-solid fa-medal"></i> <b>Quality Products</b>
 						</p>
 					</li>
 					<li>

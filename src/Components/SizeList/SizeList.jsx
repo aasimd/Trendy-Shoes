@@ -56,8 +56,8 @@ export const SizeListCard = ({ size, _id, setShowSize }) => {
 	};
 	return (
 		<button
+			className="size-button"
 			title={"Add Size to Cart"}
-			className={"not-in-cart-size"}
 			value={size}
 			onClick={(event) => {
 				AddToCartHandler(_id, event);

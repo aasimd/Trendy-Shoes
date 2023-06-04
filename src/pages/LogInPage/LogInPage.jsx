@@ -99,10 +99,7 @@ export const LogInPage = () => {
 				navigate,
 				location
 			);
-			console.log("success");
 		} else {
-			console.log("error");
-			console.log(signupInfo.email);
 			toast.error("Wrong Credentials!", {
 				position: "top-right",
 				autoClose: 3000,

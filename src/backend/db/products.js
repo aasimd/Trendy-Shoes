@@ -110,7 +110,7 @@ export const products = [
 		size: [7, 8, 9, 10],
 		image:
 			"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/19170018/2022/7/19/8a786789-1516-4a19-b392-62cd3c1b9bff1658232167497AllenSollyMenBlackSolidFormalSlip-OnShoes1.jpg",
-		inStock: false
+		inStock: true
 	},
 	{
 		_id: uuid(),
@@ -175,7 +175,7 @@ export const products = [
 		size: [7, 8, 9, 10],
 		image:
 			"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/18737874/2022/11/25/eb69810c-664b-4fc8-9502-30392199edee1669352826643-ADIDAS-Men-Sandals-8331669352826253-1.jpg",
-		inStock: false
+		inStock: true
 	},
 	{
 		_id: uuid(),
@@ -240,7 +240,7 @@ export const products = [
 		size: [7, 8, 9, 10],
 		image:
 			"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/22082096/2023/5/2/4c0da204-19f3-4dd2-8e04-6216e282bce11683011984737-Woodland-Men-Sports-Sandals-5861683011984345-1.jpg",
-		inStock: false
+		inStock: true
 	},
 	{
 		_id: uuid(),
@@ -369,7 +369,7 @@ export const products = [
 		image:
 			"https://images.reebok.eu/reebok-classic-leather-shoes_19729267_44828860_2048.jpg?c=1",
 		rating: 4.2,
-		inStock: false
+		inStock: true
 	},
 	{
 		_id: uuid(),
@@ -434,7 +434,7 @@ export const products = [
 		image:
 			"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e6116e6d-5f76-45b2-876d-277488b30f5d/zoom-fly-3-mens-running-shoes-2M10wN.png",
 		rating: 4.9,
-		inStock: false
+		inStock: true
 	},
 	{
 		_id: uuid(),
@@ -460,7 +460,7 @@ export const products = [
 		image:
 			"https://img.tatacliq.com/images/i8/437Wx649H/MP000000015080735_437Wx649H_202210301828141.jpeg",
 		rating: 4.4,
-		inStock: false
+		inStock: true
 	},
 	{
 		_id: uuid(),
@@ -485,7 +485,7 @@ export const products = [
 		size: [8, 9, 10],
 		image:
 			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/af02d704cd834e08a853ae8b010e7e4d_9366/Superstar_Shoes_White_GX1934_01_standard.jpg",
-		inStock: false,
+		inStock: true,
 		rating: 3.8
 	},
 	{
@@ -576,7 +576,7 @@ export const products = [
 		size: [9, 9.5, 10, 10.5, 11],
 		image:
 			"https://img01.ztat.net/article/spp-media-p1/5c3e00084ffd46a59748852744daa128/0f6453e69e7346afa33fc8025a521e08.jpg",
-		inStock: false,
+		inStock: true,
 		rating: 3.0
 	},
 	{
@@ -653,7 +653,7 @@ export const products = [
 		size: [9, 9.5, 10, 10.5, 11],
 		image:
 			"https://storage.sg.content-cdn.io/cdn-cgi/image/width=550,height=412,quality=75,format=auto/in-resources/e671b7de-bcf9-4637-af5c-0ffe1c9d208a/Images/ProductImages/Source/1011B473_001_SR_RT_GLBNSW.jpg",
-		inStock: true,
+		inStock: false,
 		rating: 4.7
 	},
 	{
@@ -692,7 +692,7 @@ export const products = [
 		size: [9, 9.5, 10, 10.5, 11],
 		image:
 			"https://images.asics.com/is/image/asics/1201A062_029_SR_RT_GLB?$sfcc-product$&fmt=jpg&wid=683&hei=512",
-		inStock: true,
+		inStock: false,
 		rating: 4.9
 	},
 	{
@@ -718,7 +718,7 @@ export const products = [
 		size: [5, 6, 7, 8],
 		image:
 			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a2981db2748f45548328ac2500bcff08_9366/Superstar_Bold_Shoes_White_FW2547_01_standard.jpg",
-		inStock: false,
+		inStock: true,
 		rating: 3.5
 	},
 
@@ -785,7 +785,7 @@ export const products = [
 		size: [7, 8, 9, 10],
 		image:
 			"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/19896200/2022/9/13/808d34da-69d7-4aeb-9bdb-372326b2552e1663042044358SparxGENTSSS-5731.jpg",
-		inStock: false,
+		inStock: true,
 		rating: 3.7
 	}
 ];

@@ -13,6 +13,8 @@ import { PageContext } from "../../contexts/PageContext";
 import "./ProductsInfo.css";
 import { NavBar } from "../../Components/NavBar/NavBar";
 import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
+import { ServicesCard } from "../../Components/ServicesCard/ServicesCard.jsx";
+import { ProgressBar } from "react-loader-spinner";
 export const ProductInfo = () => {
 	const { state, dispatch } = useContext(PageContext);
 	const {
@@ -134,9 +136,23 @@ export const ProductInfo = () => {
 		});
 	};
 	return (
-		<div>
+		<div style={{ position: "relative" }}>
 			{state.isLoading ? (
-				<>Loading...</>
+				<div
+					className={
+						state.isLoading ? "loader-spinner" : "loader-spinner-hidden"
+					}
+				>
+					<ProgressBar
+						height="100px"
+						width="400px"
+						ariaLabel="progress-bar-loading"
+						wrapperStyle={{}}
+						wrapperClass="progress-bar-wrapper"
+						borderColor="#F4442E"
+						barColor="#51E5FF"
+					/>
+				</div>
 			) : (
 				<div>
 					<nav>
@@ -217,6 +233,9 @@ export const ProductInfo = () => {
 								</button>
 							</div>
 						</article>
+					</div>
+					<div>
+						<ServicesCard />
 					</div>
 					<footer>
 						<FooterCard />
