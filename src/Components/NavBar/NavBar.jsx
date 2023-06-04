@@ -11,10 +11,6 @@ const getActiveStyle = ({ isActive }) =>
 export const NavBar = () => {
 	const navigate = useNavigate();
 	const { state, dispatch } = useContext(PageContext);
-	const genderClickHandler = (event) => {
-		dispatch({ type: "setGenderFilters", payload: [event.target.value] });
-		navigate("/products");
-	};
 	const totalProductsInWishlist = state.wishlistData.length;
 	const totalProductsInCart = state.cartData.reduce(
 		(acc, product) => acc + product.qty,

@@ -3,14 +3,13 @@ import "./ProductCard.css";
 import React, { useState, useContext } from "react";
 import { PageContext } from "../../contexts/PageContext";
 import {
-	fetchAddItemToCart,
 	removeItemFromWishlist,
 	fetchAddItemToWishlist,
 	fetchSelectedProduct,
 	getWishlistData
 } from "../../FetchFunctions/FetchFunctions";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SizeListCard } from "../SizeList/SizeList";
 export const ProductCard = ({ product }) => {

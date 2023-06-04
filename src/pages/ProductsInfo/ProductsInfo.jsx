@@ -23,7 +23,6 @@ export const ProductInfo = () => {
 		brand,
 		price,
 		categoryName,
-		gender,
 		size,
 		image,
 		inStock,

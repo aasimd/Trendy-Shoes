@@ -1,6 +1,4 @@
 /** @format */
-
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useContext } from "react";
 import { ProgressBar } from "react-loader-spinner";
@@ -55,11 +53,11 @@ export const LandingPage = () => {
 						<h1>View All Products</h1>
 					</div>
 					{state.categories.map((category) => {
-						const { image, categoryName, _id, description } = category;
+						const { image, categoryName, _id } = category;
 						return (
 							<li key={_id} onClick={() => categoryClickHandler(_id)}>
 								<div className="category-banner">
-									<img src={image} />
+									<img src={image} alt={categoryName} />
 									<h2>{categoryName}</h2>
 								</div>
 							</li>
@@ -69,7 +67,10 @@ export const LandingPage = () => {
 						className="category-banner"
 						onClick={() => highestRatedShoesHandler()}
 					>
-						<img src="https://www.kicksonfire.com/wp-content/uploads/2019/02/Air-Jordan-1-Retro-High-OG-Turbo-Green-2.jpg?x58464" />
+						<img
+							src="https://www.kicksonfire.com/wp-content/uploads/2019/02/Air-Jordan-1-Retro-High-OG-Turbo-Green-2.jpg?x58464"
+							alt="highest-rated"
+						/>
 						<h2>Highest Rated</h2>
 					</div>
 				</div>

@@ -1,8 +1,8 @@
 /** @format */
 import "./CartProductCard.css";
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { PageContext } from "../../contexts/PageContext.jsx";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
 	fetchAddItemToWishlist,
@@ -75,7 +75,7 @@ export const CartProductCard = ({ product }) => {
 		dispatch({ type: "changeIsLoading", payload: true });
 		navigate(`/products/${id}`);
 	};
-	const { _id, image, title, price, selectedSize, quantity, brand } = product;
+	const { _id, image, title, price, selectedSize, brand } = product;
 	return (
 		<div>
 			<li key={_id}>

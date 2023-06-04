@@ -1,6 +1,6 @@
 /** @format */
 import "./ProfilePage.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useContext } from "react";
 import { PageContext } from "../../contexts/PageContext";
@@ -84,7 +84,6 @@ export const ProfilePage = () => {
 			<footer>
 				<FooterCard />
 			</footer>
-			
 		</div>
 	);
 };

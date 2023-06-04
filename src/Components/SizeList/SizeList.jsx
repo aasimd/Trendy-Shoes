@@ -1,6 +1,6 @@
 /** @format */
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useContext } from "react";
 import { PageContext } from "../../contexts/PageContext";
@@ -10,7 +10,7 @@ import {
 } from "../../FetchFunctions/FetchFunctions";
 import "../ProductCard/ProductCard.css";
 export const SizeListCard = ({ size, _id, setShowSize }) => {
-	const { state, dispatch, displayData } = useContext(PageContext);
+	const { state, dispatch } = useContext(PageContext);
 	const AddToCartHandler = (id, event) => {
 		if (state.isLoggedIn) {
 			const findShoeInCart = state.cartData.find(

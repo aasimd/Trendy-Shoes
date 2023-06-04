@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { useContext } from "react";
-import { AddressCard } from "../../Components/AddressCard/AddressCard";
 import { PageContext } from "../../contexts/PageContext";
 import "./DeliveryAddressSelectCard.css";
 export const DeliveryAddressSelectCard = ({

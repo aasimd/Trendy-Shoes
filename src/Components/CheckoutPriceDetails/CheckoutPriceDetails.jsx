@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import { removeItemFromCart } from "../../FetchFunctions/FetchFunctions";
 export const CheckoutPriceDetails = () => {
 	const { state, dispatch } = useContext(PageContext);
-	const { id, name, street, city, pincode } = state.deliveryAddress;
+	const {name, street, city, pincode } = state.deliveryAddress;
 	const navigate = useNavigate();
 	const TotalPriceOfCartProducts = state.cartData.reduce(
 		(acc, curr) => acc + curr.price * curr.qty,

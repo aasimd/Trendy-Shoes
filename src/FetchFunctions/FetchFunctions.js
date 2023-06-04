@@ -1,5 +1,4 @@
 /** @format */
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export const fetchCategories = async (dispatch) => {
 	try {
@@ -105,7 +104,7 @@ export const fetchSignupUser = async (data, dispatch, navigate, location) => {
 export const fetchAddItemToWishlist = async (productToAdd) => {
 	try {
 		const encodedToken = localStorage.getItem("encodedtoken");
-		const response = await fetch(`/api/user/wishlist`, {
+		await fetch(`/api/user/wishlist`, {
 			method: "POST",
 			body: JSON.stringify({ product: productToAdd }),
 			headers: {

@@ -1,6 +1,5 @@
 /** @format */
 import "./CheckoutPage.css";
-import React, { useState } from "react";
 import { AddNewAddressCard } from "../../Components/AddNewAddressCard/AddNewAddressCard";
 import { CheckoutPriceDetails } from "../../Components/CheckoutPriceDetails/CheckoutPriceDetails";
 import { DeliveryAddressSelectCard } from "../../Components/DeliveryAddressSelectCard/DeliveryAddressSelectCard";

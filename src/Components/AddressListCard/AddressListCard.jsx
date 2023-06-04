@@ -5,7 +5,7 @@ import { AddressCard } from "../../Components/AddressCard/AddressCard";
 import { PageContext } from "../../contexts/PageContext";
 
 export const AddressListCard = () => {
-	const { state, dispatch } = useContext(PageContext);
+	const { state } = useContext(PageContext);
 	return (
 		<div>
 			<div className="address-list-section">
