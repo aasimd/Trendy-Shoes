@@ -11,10 +11,8 @@ import { NavLink } from "react-router-dom";
 import logo from "../../images/emptyWishlis.svg";
 import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
 export const WishlistPage = () => {
-	const { state, dispatch } = useContext(PageContext);
-	useEffect(() => {
-		getWishlistData(dispatch);
-	}, []);
+	const { state } = useContext(PageContext);
+
 	return (
 		<div>
 			<ToastContainer />
