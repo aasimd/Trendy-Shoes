@@ -65,7 +65,7 @@ export const PageContextProvider = ({ children }) => {
 			: displayArray;
 		const searchResultsData = state.showSearchResults
 			? [...filteredByPriceData].filter((product) => {
-					const brandTitle = product.brand + product.title;
+					const brandTitle = `${product.brand} ${product.title}`;
 					return brandTitle
 						.toLowerCase()
 						.trim()

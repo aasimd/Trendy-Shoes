@@ -1,6 +1,6 @@
 /** @format */
 import "./ProductListingPage.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PageContext } from "../../contexts/PageContext";
 import { NavBar } from "../../Components/NavBar/NavBar";
 import { Filters } from "../../Components/Filters/Filters.jsx";
@@ -11,8 +11,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { ServicesCard } from "../../Components/ServicesCard/ServicesCard";
 import { ProgressBar } from "react-loader-spinner";
 export const ProductsListingPage = () => {
-	const { state, displayData } = useContext(PageContext);
-
+	const { state, dispatch, displayData } = useContext(PageContext);
+	useEffect(() => {
+		dispatch({ type: "changeIsLoading", payload: true });
+		setTimeout(() => {
+			dispatch({ type: "changeIsLoading", payload: false });
+		}, 500);
+	}, []);
 	return (
 		<div>
 			{state.isLoading ? (

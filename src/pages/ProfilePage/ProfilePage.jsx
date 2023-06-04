@@ -2,17 +2,37 @@
 import "./ProfilePage.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { PageContext } from "../../contexts/PageContext";
 import { NavBar } from "../../Components/NavBar/NavBar";
 import { AddressListCard } from "../../Components/AddressListCard/AddressListCard";
 import { AddNewAddressCard } from "../../Components/AddNewAddressCard/AddNewAddressCard";
 import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
+import { ProgressBar } from "react-loader-spinner";
 export const ProfilePage = () => {
 	const { state, dispatch } = useContext(PageContext);
 	const [pageState, setPageState] = useState("ProfileInfo");
+	useEffect(() => {
+		dispatch({ type: "changeIsLoading", payload: true });
+		setTimeout(() => {
+			dispatch({ type: "changeIsLoading", payload: false });
+		}, 500);
+	}, []);
 	return (
 		<div>
+			<div
+				className={state.isLoading ? "loader-spinner" : "loader-spinner-hidden"}
+			>
+				<ProgressBar
+					height="100px"
+					width="400px"
+					ariaLabel="progress-bar-loading"
+					wrapperStyle={{}}
+					wrapperClass="progress-bar-wrapper"
+					borderColor="#F4442E"
+					barColor="#51E5FF"
+				/>
+			</div>
 			<ToastContainer />
 			<div className="profile-page">
 				<nav className="profile-nav">

@@ -1,6 +1,6 @@
 /** @format */
 import { useNavigate } from "react-router";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProgressBar } from "react-loader-spinner";
 import { NavBar } from "../../Components/NavBar/NavBar";
 import { PageContext } from "../../contexts/PageContext";
@@ -23,6 +23,12 @@ export const LandingPage = () => {
 		dispatch({ type: "setFilteredByCategory", payload: false });
 		navigate("/products");
 	};
+	useEffect(() => {
+		dispatch({ type: "changeIsLoading", payload: true });
+		setTimeout(() => {
+			dispatch({ type: "changeIsLoading", payload: false });
+		}, 500);
+	}, []);
 	return (
 		<div>
 			<div

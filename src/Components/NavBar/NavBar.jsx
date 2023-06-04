@@ -35,7 +35,7 @@ export const NavBar = () => {
 				<input
 					type="text"
 					placeholder=" Search shoes"
-					value={state.userInput.trim()}
+					value={state.userInput}
 					onChange={(event) => {
 						dispatch({ type: "setUserInput", payload: event.target.value });
 						dispatch({ type: "setShowSearchResults", payload: true });

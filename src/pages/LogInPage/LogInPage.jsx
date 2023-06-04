@@ -31,8 +31,8 @@ export const LogInPage = () => {
 	const loginAsGuestHandler = () => {
 		setLoginInfo((prev) => ({
 			...prev,
-			email: "adarshbalika@gmail.com",
-			password: "adarshbalika"
+			email: "aasim123@gmail.com",
+			password: "aasim123"
 		}));
 	};
 	const randomDataToSignupHandler = () => {

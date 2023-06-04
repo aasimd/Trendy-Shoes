@@ -42,3 +42,38 @@
 .empty-wishlist h1 span a {
 	color: var(--primary-color);
 }
+.your-wishlist-h1 {
+	margin-top: 20px;
+	color: #333333;
+	font-size: 32px;
+}
+.wishlist-products-list {
+	align-items: center;
+	border: 1px solid var(--primary-color);
+	margin: 10px 20px;
+	padding: 10px 40px;
+	border-radius: 20px;
+}
+.products-list {
+	position: relative;
+}
+.clear-wishlist-btn {
+	background-color: white;
+	cursor: pointer;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 20px;
+	position: relative;
+	right: 13.5rem;
+	margin-bottom: 20px;
+	color: red;
+	border: 1px solid red;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.clear-wishlist-btn:hover {
+	color: white;
+	background-color: red;
+}
