@@ -6,13 +6,12 @@ import { NavBar } from "../../Components/NavBar/NavBar";
 import { Filters } from "../../Components/Filters/Filters.jsx";
 import { ProductCard } from "../../Components/ProductCard/ProductCard";
 import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ServicesCard } from "../../Components/ServicesCard/ServicesCard";
 import { ProgressBar } from "react-loader-spinner";
 export const ProductsListingPage = () => {
-	const { state, dispatch, displayData } = useContext(PageContext);
-	const { isLoading } = state;
+	const { state, displayData } = useContext(PageContext);
 
 	return (
 		<div>
