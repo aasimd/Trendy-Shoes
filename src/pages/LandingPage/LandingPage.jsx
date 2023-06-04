@@ -17,9 +17,11 @@ export const LandingPage = () => {
 	};
 	const highestRatedShoesHandler = () => {
 		navigate("/products");
+		dispatch({ type: "clearFilters" });
 		dispatch({ type: "setSortType", payload: "ratings-desc" });
 	};
 	const viewAllClickHandler = () => {
+		dispatch({ type: "clearFilters" });
 		dispatch({ type: "setFilteredByCategory", payload: false });
 		navigate("/products");
 	};

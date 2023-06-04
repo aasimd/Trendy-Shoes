@@ -50,17 +50,17 @@ export const ProductsListingPage = () => {
 								<aside className="filters-container">
 									<Filters />
 								</aside>
-								<section className="products-list">
-									{displayData.length > 0 ? (
+								{displayData.length > 0 ? (
+									<section className="products-list">
 										<ul>
 											{displayData.map((product) => (
 												<ProductCard product={product} />
 											))}
 										</ul>
-									) : (
-										<h1 className="no-data-found">No data found</h1>
-									)}
-								</section>
+									</section>
+								) : (
+									<h1 id="no-data-found">No data found</h1>
+								)}
 							</main>
 						</div>
 						<div>
