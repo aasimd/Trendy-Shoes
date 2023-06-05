@@ -2,7 +2,7 @@
 
 import React from "react";
 import { createContext, useReducer, useEffect } from "react";
-
+import { v4 as uuid } from "uuid";
 import { reducerFunction } from "../ReducerFunction/reducerFunction";
 import {
 	fetchCategories,
@@ -33,12 +33,12 @@ export const PageContextProvider = ({ children }) => {
 		loginEncodedToken: "",
 		addressData: [
 			{
-				id: 1,
+				id: uuid(),
 				name: "John Doe",
 				pincode: 400064,
 				city: "Mumbai",
 				street: "Goregaon-Malad Link Road, Kamble Villa",
-				state: "Maharashtra"
+				addressState: "Maharashtra"
 			}
 		],
 		userInfo: {},

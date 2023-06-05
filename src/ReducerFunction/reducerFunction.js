@@ -82,7 +82,7 @@ export const reducerFunction = (state, { type, payload }) => {
 		case "setUserInfo":
 			return { ...state, userInfo: payload };
 		case "addNewAddress":
-			return { ...state, addressData: [...state.addressData, payload] };
+			return { ...state, addressData: payload };
 		case "setDeleteAddress":
 			return {
 				...state,

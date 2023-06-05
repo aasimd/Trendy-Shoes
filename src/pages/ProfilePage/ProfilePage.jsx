@@ -74,8 +74,12 @@ export const ProfilePage = () => {
 					{pageState === "Addresses" && (
 						<div>
 							<div className="address-section">
-								<AddressListCard />
-								<AddNewAddressCard />
+								<div>
+									<AddressListCard />
+								</div>
+								<div>
+									<AddNewAddressCard />
+								</div>
 							</div>
 						</div>
 					)}

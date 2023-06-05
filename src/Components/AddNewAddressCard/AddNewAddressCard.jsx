@@ -1,5 +1,5 @@
 /** @format */
-
+import { v4 as uuid } from "uuid";
 import React, { useContext, useState } from "react";
 import { PageContext } from "../../contexts/PageContext";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,7 +11,7 @@ export const AddNewAddressCard = () => {
 		street: "",
 		pincode: "",
 		city: "",
-		state: ""
+		addressState: ""
 	});
 
 	const [addNewAddress, setAddNewAddress] = useState(false);
@@ -21,11 +21,11 @@ export const AddNewAddressCard = () => {
 			newAddress.street.length > 0 &&
 			newAddress.pincode.length > 0 &&
 			newAddress.city.length > 0 &&
-			newAddress.state.length > 0
+			newAddress.addressState.length > 0
 		) {
 			dispatch({
 				type: "addNewAddress",
-				payload: newAddress
+				payload: [...state.addressData, newAddress]
 			});
 			toast.success("New Address added", {
 				position: "top-right",
@@ -65,8 +65,8 @@ export const AddNewAddressCard = () => {
 								street: "",
 								pincode: "",
 								city: "",
-								state: "",
-								id: 1 + state.addressData.length
+								addressState: "",
+								id: uuid()
 							});
 							setAddNewAddress(true);
 						}}
@@ -141,7 +141,7 @@ export const AddNewAddressCard = () => {
 									onChange={(event) =>
 										setNewAddress((prev) => ({
 											...prev,
-											state: event.target.value
+											addressState: event.target.value
 										}))
 									}
 									type="text"
