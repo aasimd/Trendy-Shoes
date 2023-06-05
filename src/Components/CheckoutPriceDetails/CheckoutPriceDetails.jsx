@@ -56,7 +56,7 @@ export const CheckoutPriceDetails = () => {
 					<p>100</p>
 				</div>
 			</div>
-			<div>
+			<div className="checkout-price-total">
 				<b>Total Price:</b>
 				<b>{TotalPriceOfCartProducts + 100}</b>
 			</div>
