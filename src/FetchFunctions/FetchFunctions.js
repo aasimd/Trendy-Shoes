@@ -1,5 +1,6 @@
 /** @format */
 import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 export const fetchCategories = async (dispatch) => {
 	try {
 		const response = await fetch(`/api/categories`);
@@ -74,8 +75,22 @@ export const fetchEncodedToken = async (
 				type: "setLoginError",
 				payload: ""
 			});
+			getCartData(dispatch);
+			getWishlistData(dispatch);
+			toast.success("Logged in!", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light"
+			});
+			setTimeout(() => {
+				navigate(location?.state?.from?.pathname);
+			}, 1000);
 		}
-		navigate(location?.state?.from?.pathname);
 	} catch ({ errors }) {
 		console.error(errors);
 		dispatch({
@@ -96,9 +111,19 @@ export const fetchSignupUser = async (data, dispatch, navigate, location) => {
 		dispatch({ type: "setLoginEncodedToken", payload: encodedToken });
 		dispatch({ type: "setUserInfo", payload: createdUser });
 		dispatch({ type: "setLogin", payload: true });
-		navigate(location?.state?.from?.pathname);
+		getCartData(dispatch);
+		getWishlistData(dispatch);
+		dispatch({ type: "changeIsLoading", payload: true });
+		setTimeout(() => {
+			navigate(location?.state?.from?.pathname);
+		}, 800);
 	} catch (e) {
-		console.log("error in signing up user");
+		navigate("/login");
+		console.error("error in signing up user");
+		dispatch({
+			type: "setLoginError",
+			payload: "Email ID already exists"
+		});
 	}
 };
 export const fetchAddItemToWishlist = async (productToAdd) => {
@@ -121,11 +146,26 @@ export const getWishlistData = async (dispatch) => {
 		const response = await fetch(`/api/user/wishlist`, {
 			method: "GET",
 			headers: {
-				authorization: encodedToken
+				authorization: `${encodedToken}`
 			}
 		});
-		const { wishlist } = await response.json();
-		dispatch({ type: "setWishlistData", payload: wishlist });
+		const data = await response.json();
+		dispatch({ type: "setWishlistData", payload: data.wishlist });
+	} catch (e) {
+		console.error(e.message);
+	}
+};
+export const getCartData = async (dispatch) => {
+	try {
+		const encodedToken = localStorage.getItem("encodedtoken");
+		const response = await fetch(`/api/user/cart`, {
+			method: "GET",
+			headers: {
+				authorization: `${encodedToken}`
+			}
+		});
+		const { cart } = await response.json();
+		dispatch({ type: "setCartData", payload: cart });
 	} catch (e) {
 		console.error(e.message);
 	}
@@ -201,21 +241,7 @@ export const fetchCartDecrement = async (dispatch, id) => {
 		console.error("Failed to decrease item quantity");
 	}
 };
-export const getCartData = async (dispatch) => {
-	try {
-		const encodedToken = localStorage.getItem("encodedtoken");
-		const response = await fetch(`/api/user/cart`, {
-			method: "GET",
-			headers: {
-				authorization: encodedToken
-			}
-		});
-		const { cart } = await response.json();
-		dispatch({ type: "setCartData", payload: cart });
-	} catch (e) {
-		console.error(e.message);
-	}
-};
+
 export const removeItemFromCart = async (dispatch, id) => {
 	try {
 		const encodedToken = localStorage.getItem("encodedtoken");

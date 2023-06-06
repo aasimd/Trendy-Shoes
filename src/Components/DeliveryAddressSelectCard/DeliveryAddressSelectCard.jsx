@@ -1,13 +1,22 @@
 /** @format */
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { PageContext } from "../../contexts/PageContext";
 import "./DeliveryAddressSelectCard.css";
-export const DeliveryAddressSelectCard = ({
-	deliveryAddress,
-	setDeliveryAddress
-}) => {
+export const DeliveryAddressSelectCard = () => {
 	const { state, dispatch } = useContext(PageContext);
+	const setDeliveryAddressFunc = (event) => {
+		const isChecked = event.target.checked;
+		const id = event.target.value;
+		if (isChecked) {
+			const findAddress = state.addressData.find(
+				(address) => address.id === id
+			);
+			dispatch({ type: "setDeliveryAddress", payload: findAddress });
+		} else {
+			dispatch({ type: "setDeliveryAddress", payload: undefined });
+		}
+	};
 	return (
 		<div>
 			<div className="address-list-section">
@@ -15,7 +24,7 @@ export const DeliveryAddressSelectCard = ({
 				{state.addressData.length > 0 ? (
 					<ul>
 						{state.addressData.map((address) => {
-							const { id, name, city, state, pincode, street } = address;
+							const { id, name, city, addressState, pincode, street } = address;
 							return (
 								<li id="delivery-address-container">
 									<label key={id}>
@@ -23,20 +32,19 @@ export const DeliveryAddressSelectCard = ({
 											className="delivery-address-radio"
 											type="radio"
 											name="delivery-address"
-											onChange={() =>
-												dispatch({
-													type: "setDeliveryAddress",
-													payload: address
-												})
-											}
-											/>
+											checked={state.deliveryAddress.id === id}
+											value={id}
+											onChange={(event) => {
+												setDeliveryAddressFunc(event);
+											}}
+										/>
 										<h2>{name}</h2>
 										<p>
 											{street}
 											<br />
 											{pincode}
 											<br />
-											{city}, {state}
+											{city}, {addressState}
 										</p>
 									</label>
 								</li>

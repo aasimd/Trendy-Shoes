@@ -26,7 +26,7 @@ export const WishlistPage = () => {
 		dispatch({ type: "changeIsLoading", payload: true });
 		setTimeout(() => {
 			dispatch({ type: "changeIsLoading", payload: false });
-		}, 500);
+		}, 700);
 	}, []);
 	return (
 		<div>

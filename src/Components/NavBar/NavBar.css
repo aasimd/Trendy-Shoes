@@ -19,17 +19,17 @@
 	right: 50px;
 }
 .nav-bar-links div {
-	font-size: 24px;
-	padding: 10px;
+	font-size: 18px;
+	padding: 8px;
 }
 .active-nav-links {
 	font-weight: 600;
-	font-size: 30px;
+	font-size: 24px;
 	color: red;
 }
 .inactive-nav-links {
-	font-weight: 200;
-	font-size: 28px;
+	font-weight: 400;
+	font-size: 20px;
 	color: var(--primary-color);
 	text-decoration: none;
 }
@@ -92,8 +92,10 @@
 	font-size: 16px;
 }
 #wishlist-logo p {
-	right: 70px;
+	right: 50px;
+	top: 0px;
 }
 #cart-logo p {
-	right: 2px;
+	right: -6px;
+	top: 0px;
 }

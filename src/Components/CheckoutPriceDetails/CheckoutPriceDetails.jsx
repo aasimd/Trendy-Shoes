@@ -1,6 +1,6 @@
 /** @format */
 import "./CheckoutPriceDetails.css";
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import { PageContext } from "../../contexts/PageContext";
 import "../../pages/CartPage/CartPage.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,7 +9,8 @@ import { useNavigate } from "react-router";
 import { removeItemFromCart } from "../../FetchFunctions/FetchFunctions";
 export const CheckoutPriceDetails = () => {
 	const { state, dispatch } = useContext(PageContext);
-	const {name, street, city, pincode } = state.deliveryAddress;
+	const { id, name, street, city, pincode, addressState } =
+		state.deliveryAddress;
 	const navigate = useNavigate();
 	const TotalPriceOfCartProducts = state.cartData.reduce(
 		(acc, curr) => acc + curr.price * curr.qty,
@@ -61,17 +62,17 @@ export const CheckoutPriceDetails = () => {
 				<b>{TotalPriceOfCartProducts + 100}</b>
 			</div>
 			<hr />
-			{state.deliveryAddress.name ? (
+			{state.deliveryAddress.name !== undefined ? (
 				<div>
 					<h3>Deliver to</h3>
-					<div className="address-container">
+					<div className="address-container" key={id}>
 						<h2>{name}</h2>
 						<p>
 							{street}
 							<br />
 							{pincode}
 							<br />
-							{city}
+							{city}, {addressState}
 						</p>
 
 						<button className="place-order-btn" onClick={() => orderPlaced()}>

@@ -5,122 +5,158 @@ import { useContext } from "react";
 import { PageContext } from "../../contexts/PageContext";
 
 export const AddressCard = ({ address }) => {
-	const { id, name, city, state, pincode, street } = address;
-	const { dispatch } = useContext(PageContext);
+	const { id, name, city, addressState, pincode, street } = address;
+	const { dispatch, state } = useContext(PageContext);
 	const [editAddress, setEditAddress] = useState(false);
 
 	const prevAddress = {
+		id: id,
 		name: name,
 		street: street,
 		pincode: pincode,
 		city: city,
-		state: state
+		addressState: addressState
 	};
 	const [newAddress, setNewAddress] = useState({
+		id: prevAddress.id,
 		name: prevAddress.name,
 		street: prevAddress.street,
 		pincode: prevAddress.pincode,
 		city: prevAddress.city,
-		state: prevAddress.state
+		addressState: prevAddress.addressState
 	});
-
+	const testFunction = (id) => {
+		console.log(id);
+		console.log(state.addressData);
+	};
+	const editSaveChangesHandler = (id) => {
+		setEditAddress(false);
+		const newAddressArray = state.addressData.map((address) =>
+			address.id === id
+				? {
+						...address,
+						name: newAddress.name,
+						street: newAddress.street,
+						pincode: newAddress.pincode,
+						city: newAddress.city,
+						addressState: newAddress.addressState
+				  }
+				: address
+		);
+		dispatch({ type: "setDeliveryAddress", payload: {} });
+		dispatch({ type: "addNewAddress", payload: newAddressArray });
+	};
 	return (
 		<div>
-			<li key={pincode}>
+			<li key={id}>
 				<div>
 					{editAddress ? (
 						<div className="address-edit-container">
-							<input
-								type="text"
-								placeholder={`Name: ${name}`}
-								onChange={(event) => {
-									if (event.target.value.length > 0) {
-										setNewAddress((prev) => ({
-											...prev,
-											name: event.target.value
-										}));
-									} else {
-										setNewAddress((prev) => ({
-											...prev,
-											name: prevAddress.name
-										}));
-									}
-								}}
-							/>
+							<div>
+								<label>Name: </label>
+								<input
+									type="text"
+									placeholder={`${name}`}
+									onChange={(event) => {
+										if (event.target.value.length > 0) {
+											setNewAddress((prev) => ({
+												...prev,
+												name: event.target.value
+											}));
+										} else {
+											setNewAddress((prev) => ({
+												...prev,
+												name: prevAddress.name
+											}));
+										}
+									}}
+								/>
+							</div>
+							<div>
+								<label>Street: </label>
+								<input
+									type="text"
+									placeholder={`${street}`}
+									onChange={(event) => {
+										if (event.target.value.length > 0) {
+											setNewAddress((prev) => ({
+												...prev,
+												street: event.target.value
+											}));
+										} else {
+											setNewAddress((prev) => ({
+												...prev,
+												street: prevAddress.street
+											}));
+										}
+									}}
+								/>
+							</div>
 
-							<input
-								type="text"
-								placeholder={`Street: ${street}`}
-								onChange={(event) => {
-									if (event.target.value.length > 0) {
-										setNewAddress((prev) => ({
-											...prev,
-											street: event.target.value
-										}));
-									} else {
-										setNewAddress((prev) => ({
-											...prev,
-											street: prevAddress.street
-										}));
-									}
-								}}
-							/>
-							<input
-								type="number"
-								placeholder={`Pincode: ${pincode}`}
-								onChange={(event) => {
-									if (event.target.value.length > 0) {
-										setNewAddress((prev) => ({
-											...prev,
-											pincode: event.target.value
-										}));
-									} else {
-										setNewAddress((prev) => ({
-											...prev,
-											pincode: prevAddress.pincode
-										}));
-									}
-								}}
-							/>
-							<input
-								type="text"
-								placeholder={`City: ${city}`}
-								onChange={(event) => {
-									if (event.target.value.length > 0) {
-										setNewAddress((prev) => ({
-											...prev,
-											city: event.target.value
-										}));
-									} else {
-										setNewAddress((prev) => ({
-											...prev,
-											city: prevAddress.city
-										}));
-									}
-								}}
-							/>
-							<input
-								type="text"
-								placeholder={`State: ${state}`}
-								onChange={(event) => {
-									if (event.target.value.length > 0) {
-										setNewAddress((prev) => ({
-											...prev,
-											state: event.target.value
-										}));
-									} else {
-										setNewAddress((prev) => ({
-											...prev,
-											state: prevAddress.city
-										}));
-									}
-								}}
-							/>
+							<div>
+								<label>Pincode: </label>
+								<input
+									type="number"
+									placeholder={`${pincode}`}
+									onChange={(event) => {
+										if (event.target.value.length > 0) {
+											setNewAddress((prev) => ({
+												...prev,
+												pincode: event.target.value
+											}));
+										} else {
+											setNewAddress((prev) => ({
+												...prev,
+												pincode: prevAddress.pincode
+											}));
+										}
+									}}
+								/>{" "}
+							</div>
+							<div>
+								<label>City: </label>
+								<input
+									type="text"
+									placeholder={`${city}`}
+									onChange={(event) => {
+										if (event.target.value.length > 0) {
+											setNewAddress((prev) => ({
+												...prev,
+												city: event.target.value
+											}));
+										} else {
+											setNewAddress((prev) => ({
+												...prev,
+												city: prevAddress.city
+											}));
+										}
+									}}
+								/>
+							</div>
+							<div>
+								<label>State: </label>
+								<input
+									type="text"
+									placeholder={`${addressState}`}
+									onChange={(event) => {
+										if (event.target.value.length > 0) {
+											setNewAddress((prev) => ({
+												...prev,
+												addressState: event.target.value
+											}));
+										} else {
+											setNewAddress((prev) => ({
+												...prev,
+												addressState: prevAddress.addressState
+											}));
+										}
+									}}
+								/>
+							</div>
 							<button
 								onClick={() => {
+									editSaveChangesHandler(id);
 									setEditAddress(false);
-									dispatch({ type: "setDeleteAddress", payload: id });
-									dispatch({ type: "addNewAddress", payload: newAddress });
 								}}
 							>
 								Save Changes
@@ -134,13 +170,14 @@ export const AddressCard = ({ address }) => {
 								<br />
 								{newAddress.pincode}
 								<br />
-								{newAddress.city}, {newAddress.state}
+								{newAddress.city}, {newAddress.addressState}
 							</p>
 							<div>
 								<button onClick={() => setEditAddress(true)}>Edit</button>
 								<button
 									onClick={() => {
 										dispatch({ type: "setDeleteAddress", payload: id });
+										dispatch({ type: "setDeliveryAddress", payload: {} });
 									}}
 								>
 									Delete
