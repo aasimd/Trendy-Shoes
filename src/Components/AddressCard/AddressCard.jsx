@@ -47,146 +47,145 @@ export const AddressCard = ({ address }) => {
 		dispatch({ type: "addNewAddress", payload: newAddressArray });
 	};
 	return (
-		<div>
-			<li key={id}>
-				<div>
-					{editAddress ? (
-						<div className="address-edit-container">
-							<div>
-								<label>Name: </label>
-								<input
-									type="text"
-									placeholder={`${name}`}
-									onChange={(event) => {
-										if (event.target.value.length > 0) {
-											setNewAddress((prev) => ({
-												...prev,
-												name: event.target.value
-											}));
-										} else {
-											setNewAddress((prev) => ({
-												...prev,
-												name: prevAddress.name
-											}));
-										}
-									}}
-								/>
-							</div>
-							<div>
-								<label>Street: </label>
-								<input
-									type="text"
-									placeholder={`${street}`}
-									onChange={(event) => {
-										if (event.target.value.length > 0) {
-											setNewAddress((prev) => ({
-												...prev,
-												street: event.target.value
-											}));
-										} else {
-											setNewAddress((prev) => ({
-												...prev,
-												street: prevAddress.street
-											}));
-										}
-									}}
-								/>
-							</div>
+		<li>
+			{editAddress ? (
+				<div className="address-edit-container">
+					<div>
+						<label>Name: </label>
+						<input
+							type="text"
+							placeholder={`${name}`}
+							onChange={(event) => {
+								if (event.target.value.length > 0) {
+									setNewAddress((prev) => ({
+										...prev,
+										name: event.target.value
+									}));
+								} else {
+									setNewAddress((prev) => ({
+										...prev,
+										name: prevAddress.name
+									}));
+								}
+							}}
+						/>
+					</div>
+					<div>
+						<label>Street: </label>
+						<input
+							type="text"
+							placeholder={`${street}`}
+							onChange={(event) => {
+								if (event.target.value.length > 0) {
+									setNewAddress((prev) => ({
+										...prev,
+										street: event.target.value
+									}));
+								} else {
+									setNewAddress((prev) => ({
+										...prev,
+										street: prevAddress.street
+									}));
+								}
+							}}
+						/>
+					</div>
 
-							<div>
-								<label>Pincode: </label>
-								<input
-									type="number"
-									placeholder={`${pincode}`}
-									onChange={(event) => {
-										if (event.target.value.length > 0) {
-											setNewAddress((prev) => ({
-												...prev,
-												pincode: event.target.value
-											}));
-										} else {
-											setNewAddress((prev) => ({
-												...prev,
-												pincode: prevAddress.pincode
-											}));
-										}
-									}}
-								/>{" "}
-							</div>
-							<div>
-								<label>City: </label>
-								<input
-									type="text"
-									placeholder={`${city}`}
-									onChange={(event) => {
-										if (event.target.value.length > 0) {
-											setNewAddress((prev) => ({
-												...prev,
-												city: event.target.value
-											}));
-										} else {
-											setNewAddress((prev) => ({
-												...prev,
-												city: prevAddress.city
-											}));
-										}
-									}}
-								/>
-							</div>
-							<div>
-								<label>State: </label>
-								<input
-									type="text"
-									placeholder={`${addressState}`}
-									onChange={(event) => {
-										if (event.target.value.length > 0) {
-											setNewAddress((prev) => ({
-												...prev,
-												addressState: event.target.value
-											}));
-										} else {
-											setNewAddress((prev) => ({
-												...prev,
-												addressState: prevAddress.addressState
-											}));
-										}
-									}}
-								/>
-							</div>
-							<button
-								onClick={() => {
-									editSaveChangesHandler(id);
-									setEditAddress(false);
-								}}
-							>
-								Save Changes
-							</button>
-						</div>
-					) : (
-						<div className="address-container">
-							<h2>{newAddress.name}</h2>
-							<p>
-								{newAddress.street}
-								<br />
-								{newAddress.pincode}
-								<br />
-								{newAddress.city}, {newAddress.addressState}
-							</p>
-							<div>
-								<button onClick={() => setEditAddress(true)}>Edit</button>
-								<button
-									onClick={() => {
-										dispatch({ type: "setDeleteAddress", payload: id });
-										dispatch({ type: "setDeliveryAddress", payload: {} });
-									}}
-								>
-									Delete
-								</button>
-							</div>
-						</div>
-					)}
+					<div>
+						<label>Pincode: </label>
+						<input
+							type="number"
+							placeholder={`${pincode}`}
+							onChange={(event) => {
+								if (event.target.value.length > 0) {
+									setNewAddress((prev) => ({
+										...prev,
+										pincode: event.target.value
+									}));
+								} else {
+									setNewAddress((prev) => ({
+										...prev,
+										pincode: prevAddress.pincode
+									}));
+								}
+							}}
+						/>{" "}
+					</div>
+					<div>
+						<label>City: </label>
+						<input
+							type="text"
+							placeholder={`${city}`}
+							onChange={(event) => {
+								if (event.target.value.length > 0) {
+									setNewAddress((prev) => ({
+										...prev,
+										city: event.target.value
+									}));
+								} else {
+									setNewAddress((prev) => ({
+										...prev,
+										city: prevAddress.city
+									}));
+								}
+							}}
+						/>
+					</div>
+					<div>
+						<label>State: </label>
+						<input
+							type="text"
+							placeholder={`${addressState}`}
+							onChange={(event) => {
+								if (event.target.value.length > 0) {
+									setNewAddress((prev) => ({
+										...prev,
+										addressState: event.target.value
+									}));
+								} else {
+									setNewAddress((prev) => ({
+										...prev,
+										addressState: prevAddress.addressState
+									}));
+								}
+							}}
+						/>
+					</div>
+					<button
+						onClick={() => {
+							editSaveChangesHandler(id);
+							setEditAddress(false);
+						}}
+					>
+						Save Changes
+					</button>
 				</div>
-			</li>
-		</div>
+			) : (
+				<div className="address-container">
+					<h2>{newAddress.name}</h2>
+					<p>
+						{newAddress.street}
+						<br />
+						{newAddress.pincode}
+						<br />
+						{newAddress.city}, {newAddress.addressState}
+					</p>
+					<div>
+						<button onClick={() => setEditAddress(true)}>Edit</button>
+						<button
+							onClick={() => {
+								const newarray = state.addressData.filter(
+									(address) => address.id !== id
+								);
+								dispatch({ type: "setDeleteAddress", payload: newarray });
+								dispatch({ type: "setDeliveryAddress", payload: {} });
+							}}
+						>
+							Delete
+						</button>
+					</div>
+				</div>
+			)}
+		</li>
 	);
 };
