@@ -1,7 +1,7 @@
 /** @format */
 
 import "./App.css";
-import Mockman from "mockman-js";
+// import Mockman from "mockman-js";
 import { Route, Routes } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage/LandingPage.jsx";
 import { ProductsListingPage } from "./pages/ProductsListingPage/ProductsListingPage.jsx";
@@ -18,10 +18,17 @@ function App() {
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/products" element={<ProductsListingPage />} />
-				<Route path="/mockman" element={<Mockman />} />
+				{/* <Route path="/mockman" element={<Mockman />} /> */}
 				<Route path="/products/:productId" element={<ProductInfo />} />
 				<Route path="/login" element={<LogInPage />} />
-				<Route path="/checkout" element={<CheckoutPage />} />
+				<Route
+					path="/checkout"
+					element={
+						<Auth>
+							<CheckoutPage />
+						</Auth>
+					}
+				/>
 				<Route
 					path="/cart"
 					element={

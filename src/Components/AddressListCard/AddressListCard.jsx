@@ -13,7 +13,7 @@ export const AddressListCard = () => {
 				{state.addressData.length > 0 ? (
 					<ul>
 						{state.addressData.map((address) => (
-							<AddressCard address={address} />
+							<AddressCard key={address.id} address={address} />
 						))}
 					</ul>
 				) : (

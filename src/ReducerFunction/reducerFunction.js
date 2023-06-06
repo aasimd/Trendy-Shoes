@@ -88,9 +88,7 @@ export const reducerFunction = (state, { type, payload }) => {
 		case "setDeleteAddress":
 			return {
 				...state,
-				addressData: [...state.addressData].filter(
-					(address) => address.id !== payload
-				)
+				addressData: payload
 			};
 		case "setWishlistData":
 			return { ...state, wishlistData: payload };
