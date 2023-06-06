@@ -3,14 +3,16 @@ import "./LoginPage.css";
 import React, { useContext, useState } from "react";
 import {
 	fetchEncodedToken,
-	fetchSignupUser
+	fetchSignupUser,
+	getCartData,
+	getWishlistData
 } from "../../FetchFunctions/FetchFunctions";
 import { PageContext } from "../../contexts/PageContext";
 import { useLocation, useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NavBar } from "../../Components/NavBar/NavBar";
-
+import { ProgressBar } from "react-loader-spinner";
 export const LogInPage = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
@@ -56,18 +58,8 @@ export const LogInPage = () => {
 				navigate,
 				location
 			);
-			if (state.isLoggedIn === true) {
-				toast.success("Logged in!", {
-					position: "top-right",
-					autoClose: 3000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: "light"
-				});
-			}
+			getWishlistData(dispatch);
+			getCartData(dispatch);
 		} else {
 			toast.error("Wrong Credentials!", {
 				position: "top-right",
@@ -117,6 +109,7 @@ export const LogInPage = () => {
 			<nav>
 				<NavBar />
 			</nav>
+
 			{pageState === "login" ? (
 				<div className="login-page">
 					<h1>Login</h1>

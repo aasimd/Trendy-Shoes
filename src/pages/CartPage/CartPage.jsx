@@ -25,13 +25,13 @@ export const CartPage = () => {
 		idArray.forEach((id) => removeItemFromCart(dispatch, id));
 		setTimeout(() => {
 			dispatch({ type: "changeIsLoading", payload: false });
-		}, 1000);
+		}, 1200);
 	};
 	useEffect(() => {
 		dispatch({ type: "changeIsLoading", payload: true });
 		setTimeout(() => {
 			dispatch({ type: "changeIsLoading", payload: false });
-		}, 500);
+		}, 700);
 	}, []);
 	return (
 		<div>

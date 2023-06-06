@@ -83,6 +83,8 @@ export const reducerFunction = (state, { type, payload }) => {
 			return { ...state, userInfo: payload };
 		case "addNewAddress":
 			return { ...state, addressData: payload };
+		case "setAddressData":
+			return { ...state, addressData: payload };
 		case "setDeleteAddress":
 			return {
 				...state,
@@ -91,9 +93,9 @@ export const reducerFunction = (state, { type, payload }) => {
 				)
 			};
 		case "setWishlistData":
-			return { ...state, wishlistData: [...payload] };
+			return { ...state, wishlistData: payload };
 		case "setCartData":
-			return { ...state, cartData: [...payload] };
+			return { ...state, cartData: payload };
 		case "setDeliveryAddress":
 			return { ...state, deliveryAddress: payload };
 		default:

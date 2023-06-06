@@ -5,6 +5,7 @@ import { CheckoutPriceDetails } from "../../Components/CheckoutPriceDetails/Chec
 import { DeliveryAddressSelectCard } from "../../Components/DeliveryAddressSelectCard/DeliveryAddressSelectCard";
 import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
 import { NavBar } from "../../Components/NavBar/NavBar";
+import { ServicesCard } from "../../Components/ServicesCard/ServicesCard";
 export const CheckoutPage = () => {
 	return (
 		<div>
@@ -22,6 +23,9 @@ export const CheckoutPage = () => {
 				<div className="checkout-price-details-container">
 					<CheckoutPriceDetails />
 				</div>
+			</div>
+			<div>
+				<ServicesCard />
 			</div>
 			<footer>
 				<FooterCard />

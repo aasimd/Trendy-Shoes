@@ -63,6 +63,27 @@ export const ProductCard = ({ product }) => {
 		});
 	};
 
+	const wishlistHandler = (_id) => {
+		if (state.isLoggedIn) {
+			state.wishlistData.findIndex((product) => product._id === _id) >= 0
+				? RemoveFromWishlistHandler(_id)
+				: AddToWishlistHandler(_id);
+		} else {
+			toast.info("Please login to add products to wishlist!", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light"
+			});
+			setTimeout(() => {
+				navigate("/profile");
+			}, 1200);
+		}
+	};
 	const { size, price, title, brand, image, _id, inStock, rating } = product;
 	return (
 		<li
@@ -93,11 +114,7 @@ export const ProductCard = ({ product }) => {
 			<button
 				disabled={!inStock ? true : false}
 				style={{ cursor: !inStock ? "not-allowed" : "pointer" }}
-				onClick={() => {
-					state.wishlistData.findIndex((product) => product._id === _id) >= 0
-						? RemoveFromWishlistHandler(_id)
-						: AddToWishlistHandler(_id);
-				}}
+				onClick={() => wishlistHandler(_id)}
 				className="add-to-wishlist-button"
 				alt="Add to Wishlist"
 			>

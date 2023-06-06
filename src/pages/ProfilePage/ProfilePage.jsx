@@ -18,6 +18,9 @@ export const ProfilePage = () => {
 			dispatch({ type: "changeIsLoading", payload: false });
 		}, 500);
 	}, []);
+	const logoutHandler = () => {
+		dispatch({ type: "setLogin", payload: false });
+	};
 	return (
 		<div>
 			<div
@@ -95,11 +98,7 @@ export const ProfilePage = () => {
 									<span>Email </span>
 									{state.userInfo.email}
 								</p>
-								<button
-									onClick={() => dispatch({ type: "setLogin", payload: false })}
-								>
-									Logout
-								</button>
+								<button onClick={() => logoutHandler()}>Logout</button>
 							</div>
 						</section>
 					)}

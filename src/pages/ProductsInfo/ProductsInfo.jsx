@@ -15,6 +15,7 @@ import { NavBar } from "../../Components/NavBar/NavBar";
 import { FooterCard } from "../../Components/FooterCard/FooterCard.jsx";
 import { ServicesCard } from "../../Components/ServicesCard/ServicesCard.jsx";
 import { ProgressBar } from "react-loader-spinner";
+import { useNavigate } from "react-router";
 export const ProductInfo = () => {
 	const { state, dispatch } = useContext(PageContext);
 	const {
@@ -30,7 +31,7 @@ export const ProductInfo = () => {
 	} = state.selectedProduct;
 	const [selectedSizeFromProductInfo, setSelectedSizeFromProductInfo] =
 		useState();
-
+	const navigate = useNavigate();
 	const AddToCartHandler = (id) => {
 		if (state.isLoggedIn) {
 			if (selectedSizeFromProductInfo !== undefined) {
@@ -88,6 +89,9 @@ export const ProductInfo = () => {
 				progress: undefined,
 				theme: "light"
 			});
+			setTimeout(() => {
+				navigate("/profile");
+			}, 1200);
 		}
 		setSelectedSizeFromProductInfo(() => undefined);
 	};
@@ -133,6 +137,27 @@ export const ProductInfo = () => {
 			progress: undefined,
 			theme: "light"
 		});
+	};
+	const wishlistHandler = (_id) => {
+		if (state.isLoggedIn) {
+			state.wishlistData.findIndex((product) => product._id === _id) >= 0
+				? RemoveFromWishlistHandler(_id)
+				: AddToWishlistHandler(_id);
+		} else {
+			toast.info("Please login to add products to wishlist!", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light"
+			});
+			setTimeout(() => {
+				navigate("/profile");
+			}, 1200);
+		}
 	};
 	return (
 		<div style={{ position: "relative" }}>
@@ -209,15 +234,7 @@ export const ProductInfo = () => {
 								<button onClick={() => AddToCartHandler(_id)}>
 									<i class="fa-solid fa-cart-plus"></i> Add to Cart
 								</button>
-								<button
-									onClick={() => {
-										state.wishlistData.findIndex(
-											(product) => product._id === _id
-										) >= 0
-											? RemoveFromWishlistHandler(_id)
-											: AddToWishlistHandler(_id);
-									}}
-								>
+								<button onClick={() => wishlistHandler(_id)}>
 									{state.wishlistData.findIndex(
 										(product) => product._id === _id
 									) >= 0 ? (

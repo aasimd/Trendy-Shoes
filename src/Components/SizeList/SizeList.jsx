@@ -9,8 +9,10 @@ import {
 	fetchCartIncrement
 } from "../../FetchFunctions/FetchFunctions";
 import "../ProductCard/ProductCard.css";
+import { useNavigate } from "react-router";
 export const SizeListCard = ({ size, _id, setShowSize }) => {
 	const { state, dispatch } = useContext(PageContext);
+	const navigate = useNavigate();
 	const AddToCartHandler = (id, event) => {
 		if (state.isLoggedIn) {
 			const findShoeInCart = state.cartData.find(
@@ -52,6 +54,9 @@ export const SizeListCard = ({ size, _id, setShowSize }) => {
 				progress: undefined,
 				theme: "light"
 			});
+			setTimeout(() => {
+				navigate("/profile");
+			}, 1200);
 		}
 	};
 	return (

@@ -70,13 +70,13 @@ export const NavBar = () => {
 					<NavLink className={getActiveStyle} to="/wishlist" title="Wishlist">
 						<i class="fa-regular fa-heart"></i>
 					</NavLink>
-					<p>{totalProductsInWishlist}</p>
+					{state.isLoggedIn ? <p>{totalProductsInWishlist}</p> : ""}
 				</div>
 				<div id="cart-logo">
 					<NavLink className={getActiveStyle} to="/cart" title="Shopping Cart">
 						<i class="fa-solid fa-cart-shopping"></i>
 					</NavLink>
-					<p>{totalProductsInCart}</p>
+					{state.isLoggedIn ? <p>{totalProductsInCart}</p> : ""}
 				</div>
 			</div>
 		</div>
