@@ -63,12 +63,14 @@ export const LandingPage = () => {
 					{state.categories.map((category) => {
 						const { image, categoryName, _id } = category;
 						return (
-							<li key={_id} onClick={() => categoryClickHandler(_id)}>
-								<div className="category-banner">
-									<img src={image} alt={categoryName} />
-									<h2>{categoryName}</h2>
-								</div>
-							</li>
+							<div
+								key={_id}
+								onClick={() => categoryClickHandler(_id)}
+								className="category-banner"
+							>
+								<img src={image} alt={categoryName} />
+								<h2>{categoryName}</h2>
+							</div>
 						);
 					})}
 					<div
