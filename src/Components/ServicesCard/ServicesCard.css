@@ -1,21 +1,68 @@
 /** @format */
-
+* {
+	box-sizing: border-box;
+}
 .services-list ul {
+	width: 100%;
 	display: flex;
 	justify-content: center;
-	gap: 2rem;
-	margin: 50px 10px 20px 10px ;
+	gap: 0.5rem;
+	margin: 10px auto;
 }
 .services-list ul li {
 	list-style: none;
 	flex-grow: 1;
-	padding: 30px 20px;
+	padding: 10px;
 	background-color: #f0f0f0;
 	color: black;
 	border-radius: 10px;
-	font-size: 20px;
+	font-size: 10px;
 	text-transform: uppercase;
 }
 .services-list ul li i {
-	font-size: 30px;
+	font-size: 14px;
+}
+@media screen and (min-width: 700px) {
+	.services-list ul {
+		display: flex;
+		justify-content: center;
+		gap: 0.2rem;
+		margin: 20px auto;
+	}
+	.services-list ul li {
+		max-width: 24%;
+		list-style: none;
+		flex-grow: 1;
+		padding: 20px 10px;
+		background-color: #f0f0f0;
+		color: black;
+		border-radius: 10px;
+		font-size: 1rem;
+		text-transform: uppercase;
+	}
+	.services-list ul li i {
+		font-size: 1.25rem;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.services-list ul {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		margin: 30px auto 20px auto;
+		padding: 20px;
+	}
+	.services-list ul li {
+		list-style: none;
+		flex-grow: 1;
+		padding: 30px 20px;
+		background-color: #f0f0f0;
+		color: black;
+		border-radius: 10px;
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+	.services-list ul li i {
+		font-size: 30px;
+	}
 }
