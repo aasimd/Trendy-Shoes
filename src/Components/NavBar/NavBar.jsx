@@ -3,10 +3,10 @@
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router";
 import "./NavBar.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PageContext } from "../../contexts/PageContext";
 
-const getActiveStyle = ({ isActive }) =>
+export const getActiveStyle = ({ isActive }) =>
 	isActive ? "active-nav-links" : "inactive-nav-links";
 export const NavBar = () => {
 	const navigate = useNavigate();
@@ -78,6 +78,11 @@ export const NavBar = () => {
 					</NavLink>
 					{state.isLoggedIn ? <p>{totalProductsInCart}</p> : ""}
 				</div>
+			</div>
+			<div className="nav-menu-button">
+				<button onClick={() => dispatch({ type: "setShowNavBarLinks" })}>
+					<i class="fa-solid fa-bars"></i>
+				</button>
 			</div>
 		</div>
 	);
