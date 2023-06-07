@@ -12,6 +12,12 @@
 	width: 100%;
 	border-radius: 20px;
 }
+.landing-page-menu div:nth-of-type(2) h2::after,
+.landing-page-menu div:nth-of-type(3) h2::after,
+.landing-page-menu div:nth-of-type(4) h2::after,
+.landing-page-menu div:nth-of-type(5) h2::after {
+	content: "S";
+}
 .landing-page-menu div:nth-of-type(2) {
 	grid-area: category1;
 	color: red;
@@ -139,10 +145,10 @@
 	.landing-page-menu {
 		display: grid;
 		grid-template-areas:
-		"viewAll viewAll"
-		"category1 category2"
-		"category4 category3"
-		"category5 category5";
+			"viewAll viewAll"
+			"category1 category2"
+			"category4 category3"
+			"category5 category5";
 		justify-content: center;
 		width: 100%;
 		margin: auto;
@@ -176,7 +182,7 @@
 		box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 	}
 	.view-all-banner img {
-		min-height: 100%;
+		min-height: 102%;
 		object-fit: cover;
 		object-position: 40% 50%;
 	}
@@ -230,7 +236,7 @@
 			"viewAll viewAll category1"
 			"viewAll viewAll category3"
 			"category2 category4 category5";
-		width: fit-content;
+		width: 100%;
 		margin: 20px auto;
 		gap: 1rem;
 		padding: 1rem;
@@ -246,15 +252,15 @@
 		cursor: pointer;
 		text-transform: uppercase;
 		padding: 5px auto;
-		font-size: 30px;
+		font-size: 2.5rem;
 		position: relative;
 		top: -3rem;
-		height: 50px;
+		height: 3rem;
 	}
 	.category-banner,
 	.landing-page-menu div:nth-of-type(6) {
-		width: 390px;
-		height: 288px;
+		width: 100%;
+		height: 100%;
 		inset: 0;
 		left: 0;
 		right: 0;
@@ -263,8 +269,8 @@
 		box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 	}
 	.view-all-banner {
-		width: 800px;
-		height: 590px;
+		width: 100%;
+		height: 100%;
 		margin: auto;
 		inset: 0;
 		left: 0;
@@ -276,18 +282,20 @@
 		box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 	}
 	.view-all-banner img {
-		height: 106%;
+		width: 100%;
+		min-height: 111.5%;
 		object-fit: cover;
 		object-position: 40% 50%;
 	}
 	.category-banner h2 {
-		margin-top: -50px;
+		margin-top: -4rem;
 		background-color: rgba(0, 0, 0, 0.5);
 		filter: blur(0.2px);
 		color: white;
 		cursor: pointer;
 		text-transform: uppercase;
 		padding: 10px auto;
+		font-size: 2rem;
 	}
 	.category-banner li {
 		list-style: none;
