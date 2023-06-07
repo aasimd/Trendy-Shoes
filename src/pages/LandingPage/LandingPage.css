@@ -139,11 +139,10 @@
 	.landing-page-menu {
 		display: grid;
 		grid-template-areas:
-			"viewAll viewAll"
-			"viewAll viewAll"
-			"category4 category3"
-			"category1 category2"
-			"category5 category5";
+		"viewAll viewAll"
+		"category1 category2"
+		"category4 category3"
+		"category5 category5";
 		justify-content: center;
 		width: 100%;
 		margin: auto;
