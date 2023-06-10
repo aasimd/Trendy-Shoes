@@ -359,17 +359,17 @@
 		background-color: var(--primary-color-dark);
 		width: 22px;
 		border-radius: 50%;
-		position: absolute;
+		position: relative;
 		top: 30px;
 		font-size: 16px;
 	}
 	#wishlist-logo p {
-		right: 50px;
-		top: 0px;
+		right: -15px;
+		top: -35px;
 	}
 	#cart-logo p {
-		right: -6px;
-		top: 0px;
+		right: -20px;
+		top: -35px;
 	}
 	.nav-menu-button {
 		display: none;
