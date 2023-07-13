@@ -1,5 +1,5 @@
 # Trendy-Shoes
-## Ecommerce App
+## Ecommerce App for Buying shoes online
 **Features:**
 *  Home Page
 *  Product Listing Page
@@ -17,5 +17,5 @@
 *  Address Management
 *  Checkout
 
-**Live Link:** [*trendy-shoes.netlify.app*](https://trendy-shoes.netlify.app) <br>
+**Live Project Link:** [*trendy-shoes.netlify.app*](https://trendy-shoes.netlify.app) <br>
 **Project Working Video:** [*Loom video*](https://www.loom.com/share/81ab46586c01420fb3e02508f775288a?sid=f1db5794-9467-4b48-a664-547a8b294aa9)
