@@ -1,49 +1,61 @@
 /** @format */
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 .nav-bar-links-for-small-displays {
-	transition: 2s;
-	padding: 10px;
-	height: fit-content;
+    transition: 2s;
+    /* padding: 10px; */
+    /* height: 100%; */
+    display: flex;
+    /* background-color: red; */
 }
 .nav-bar-links-hidden-for-small-displays {
-	list-style: none;
-	padding: 10px;
-	background-color: aliceblue;
-	position: absolute;
-	right: -20rem;
-	display: none;
-	transition: 1.5s;
+    z-index: -5;
+    background-color: aliceblue;
+    display: none;
+    position: absolute;
+    transition: 1.5s;
 }
 .nav-bar-links-visible-for-small-displays {
-	list-style: none;
-	background-color: aliceblue;
-	padding: 10px;
-	position: absolute;
-	inset: 0;
-	bottom: 0;
-	float: right;
-	left: 0;
-	top: 0;
-	display: block;
-	transition: 2s;
-	z-index: 5;
-	height: 100vh;
+    display: block;
+    width: 100%;
+    /* padding: 1px 10px; */
+    background-color: var(--primary-color-dark);
+    color: white;
+    justify-content: space-between;
 }
-.nav-bar-links-visible-for-small-displays div {
-	padding: 10px;
-	border: 1px solid var(--primary-color);
-	background-color: white;
+
+.nav-bar-links-visible-for-small-displays ul {
+    display: flex;
+    width: 100%;
+    padding: 1px 10px;
+    background-color: white;
+    justify-content: space-between;
+}
+.nav-bar-links-visible-for-small-displays li{
+	text-align: center;
+}
+.nav-bar-links-visible-for-small-displays li a {
+    /* max-height: fit-content; */
+    font-size: 14px;
+    padding: 10px;
+    /* color: var(--primary-color-dark); */
+    /* border: 1px solid var(--primary-color); */
+    /* background-color: white */
+}
+
+.nav-bar-links-visible-for-small-displays li a:hover {
+    background-color: aliceblue;
+    /* color: var(white); */
+    /* transform: scale(1.05); */
+    font-weight: 600;
+}
+.nav-menu-button {
+    z-index: 15;
 }
 .nav-bar-links-visible-for-small-displays #wishlist-logo p,
 .nav-bar-links-visible-for-small-displays #cart-logo p {
-	position: absolute;
-	right: 10%;
-}
-.nav-bar-links-visible-for-small-displays .inactive-nav-links:hover {
-	color: var(--primary-color-dark);
-	transform: scale(1.2);
-	font-size: 24px;
+    position: absolute;
+    right: 10%;
 }

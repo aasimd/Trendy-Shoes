@@ -1,5 +1,24 @@
 /** @format */
-
+.loader-spinner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	right: 0;
+	transition: 0.3s;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.loader-spinner-hidden {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	left: -100vh;
+	transition: 0.3s;
+}
 .App {
 	text-align: center;
 }
