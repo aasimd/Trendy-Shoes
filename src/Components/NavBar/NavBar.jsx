@@ -121,9 +121,9 @@ export const NavBar = () => {
                     )}
                 </div> */}
                 {/* {state?.showNavBarLinks && ( */}
-                    <div>
+                    {/* <div>
                         <NavBarLinksForSmallDisplays />
-                    </div>
+                    </div> */}
                 {/* )} */}
             </div>
         </div>
