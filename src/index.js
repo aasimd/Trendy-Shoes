@@ -5,7 +5,6 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { PageContext, PageContextProvider } from "./contexts/PageContext";
-// Call make Server
 makeServer();
 export { PageContext };
 ReactDOM.render(
