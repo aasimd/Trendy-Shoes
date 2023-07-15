@@ -52,9 +52,7 @@ export const LandingPage = () => {
 					<NavBar />
 				</nav>
 				<div>
-					<div>
-						<NavBarLinksForSmallDisplays />
-					</div>
+					
 					<div className="landing-page-menu">
 						<div className="view-all-banner">
 							<img
