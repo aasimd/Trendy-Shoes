@@ -1,28 +1,54 @@
 /** @format */
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .checkout-page {
-	display: grid;
-	gap: 1rem;
-	grid-template-areas:
-		"checkoutAddressList  checkoutPriceDetails "
-		"checkoutAddNewAddress checkoutPriceDetails";
-	padding: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 2rem;
 }
 .checkout-address-list-container {
-	grid-area: checkoutAddressList;
-	/* margin: auto; */
+    margin: auto;
 }
 .checkout-add-new-address-container {
-	grid-area: checkoutAddNewAddress;
-	max-width: 300px;
-	margin: auto;
+    width: 100%;
+    margin: auto;
 }
 .checkout-price-details-container {
-	grid-area: checkoutPriceDetails;
-	width: 350px;
-	margin: auto;
+    width: 350px;
+    margin: auto;
+}
+.checkout-page-header {
+    padding: 20px;
+    font-size: 20px;
+}
+@media screen and (min-width: 1024px) {
+    .checkout-page-header {
+        font-size: 30px;
+    }
+    .checkout-page {
+        display: grid;
+        gap: 1rem;
+        grid-template-areas:
+            'checkoutAddressList  checkoutPriceDetails '
+            'checkoutAddNewAddress checkoutPriceDetails';
+        padding: 30px;
+    }
+    .checkout-address-list-container {
+        grid-area: checkoutAddressList;
+        /* margin: auto; */
+    }
+    .checkout-add-new-address-container {
+        grid-area: checkoutAddNewAddress;
+        max-width: 300px;
+        margin: auto;
+    }
+    .checkout-price-details-container {
+        grid-area: checkoutPriceDetails;
+        width: 350px;
+        margin: auto;
+    }
 }
