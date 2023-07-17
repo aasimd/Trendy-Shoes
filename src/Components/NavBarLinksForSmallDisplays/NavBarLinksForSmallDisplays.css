@@ -48,11 +48,11 @@
 }
 
 .nav-bar-links-visible-for-small-displays li a:hover {
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     /* color: var(white); */
     /* transform: scale(1.05); */
-    font-weight: 600;
-    font-size: 21px;
+    font-weight: 500;
+    /* font-size: 21px; */
 }
 .nav-menu-button {
     z-index: 15;
