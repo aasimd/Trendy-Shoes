@@ -21,16 +21,7 @@
 .filters p {
 	font-weight: 500;
 }
-.clear-filters-button {
-	position: absolute;
-	right: 20px;
-	top: 25px;
-	font-size: 15px;
-	border: 1px solid;
-	padding: 2px;
-	background-color: inherit;
-	color: #444444;
-}
+
 
 .price-filter,
 .gender-filter,

@@ -87,7 +87,7 @@ export const ProductCard = ({ product }) => {
 	const { size, price, title, brand, image, _id, inStock, rating } = product;
 	return (
 		<li
-			key={_id}
+			
 			className={!inStock ? "out-of-stock-product" : "instock-product"}
 			title={inStock ? "" : "Currently out of stock"}
 		>
