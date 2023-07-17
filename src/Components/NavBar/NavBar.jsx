@@ -19,7 +19,7 @@ export const NavBar = () => {
     )
     return (
         <div className="nav-bar">
-            <div>
+            <div className="normal-nav-bar">
                 <div className="navbar-logo">
                     <img
                         onClick={() => {
@@ -33,7 +33,7 @@ export const NavBar = () => {
                     />
                 </div>
                 <div className="search-bar">
-                    <i className="fa-solid fa-magnifying-glass search-icon"></i>
+                    {/* <i className="fa-solid fa-magnifying-glass search-icon"></i> */}
                     <input
                         type="search"
                         placeholder=" Search shoes"
@@ -81,12 +81,12 @@ export const NavBar = () => {
                             title="Wishlist"
                         >
                             <i class="fa-regular fa-heart"></i>
+                            {state.isLoggedIn ? (
+                                <p>{totalProductsInWishlist}</p>
+                            ) : (
+                                ''
+                            )}
                         </NavLink>
-                        {state.isLoggedIn ? (
-                            <p>{totalProductsInWishlist}</p>
-                        ) : (
-                            ''
-                        )}
                     </div>
                     <div id="cart-logo">
                         <NavLink
@@ -95,13 +95,17 @@ export const NavBar = () => {
                             title="Shopping Cart"
                         >
                             <i class="fa-solid fa-cart-shopping"></i>
+                            {state.isLoggedIn ? (
+                                <p>{totalProductsInCart}</p>
+                            ) : (
+                                ''
+                            )}
                         </NavLink>
-                        {state.isLoggedIn ? <p>{totalProductsInCart}</p> : ''}
                     </div>
                 </div>
             </div>
-            <div>
-                {/* <div className="nav-menu-button">
+            {/* <div> */}
+            {/* <div className="nav-menu-button">
                     {state?.showNavBarLinks ? (
                         <button
                             onClick={() =>
@@ -120,12 +124,12 @@ export const NavBar = () => {
                         </button>
                     )}
                 </div> */}
-                {/* {state?.showNavBarLinks && ( */}
-                    {/* <div>
-                        <NavBarLinksForSmallDisplays />
-                    </div> */}
-                {/* )} */}
+            {/* {state?.showNavBarLinks && ( */}
+            <div className="nav-bar-for-small-displays">
+                <NavBarLinksForSmallDisplays />
             </div>
+            {/* )} */}
+            {/* </div> */}
         </div>
     )
 }

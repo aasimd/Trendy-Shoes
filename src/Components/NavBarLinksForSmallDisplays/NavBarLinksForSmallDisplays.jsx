@@ -4,6 +4,10 @@ import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { PageContext } from '../../contexts/PageContext'
 import { getActiveStyle } from '../NavBar/NavBar'
+
+export const getActiveStyleForSmallDisplays = ({ isActive }) =>
+    isActive ? 'small-active-nav-links' : 'small-inactive-nav-links'
+
 export const NavBarLinksForSmallDisplays = () => {
     const { state, dispatch } = useContext(PageContext)
     const totalProductsInWishlist = state.wishlistData.length
@@ -25,7 +29,7 @@ export const NavBarLinksForSmallDisplays = () => {
                     <ul>
                         <li>
                             <NavLink
-                                className={getActiveStyle}
+                                className={getActiveStyleForSmallDisplays}
                                 to="/products"
                                 title="Explore products"
                                 onClick={() =>
@@ -39,36 +43,36 @@ export const NavBarLinksForSmallDisplays = () => {
                         </li>
                         <li>
                             <NavLink
-                                className={getActiveStyle}
+                                className={getActiveStyleForSmallDisplays}
                                 to="/profile"
                                 title="User Profile"
                             >
                                 {/* <i class="fa-regular fa-user"></i>
                                 <br />  */}
-								Profile
+                                Profile
                             </NavLink>
                         </li>
                         <li id="wishlist-logo">
                             <NavLink
-                                className={getActiveStyle}
+                                className={getActiveStyleForSmallDisplays}
                                 to="/wishlist"
                                 title="Wishlist"
                             >
                                 {/* <i class="fa-regular fa-heart"></i> */}
                                 {/* <br />  */}
-								Wishlist{' '}
+                                Wishlist{' '}
                                 {state.isLoggedIn && `(${totalProductsInCart})`}
                             </NavLink>
                         </li>
                         <li id="cart-logo">
                             <NavLink
-                                className={getActiveStyle}
+                                className={getActiveStyleForSmallDisplays}
                                 to="/cart"
                                 title="Shopping Cart"
                             >
                                 {/* <i class="fa-solid fa-cart-shopping"></i>
                                 <br />  */}
-								Cart
+                                Cart
                                 {state.isLoggedIn && `(${totalProductsInCart})`}
                             </NavLink>
                         </li>

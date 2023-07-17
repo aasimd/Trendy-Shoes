@@ -10,6 +10,7 @@
     display: flex;
     /* background-color: red; */
 }
+
 .nav-bar-links-hidden-for-small-displays {
     z-index: -5;
     background-color: aliceblue;
@@ -30,16 +31,17 @@
     display: flex;
     width: 100%;
     padding: 1px 10px;
-    background-color: white;
-    justify-content: space-between;
+    background-color: whitesmoke;
+    justify-content: space-evenly;
 }
-.nav-bar-links-visible-for-small-displays li{
-	text-align: center;
+.nav-bar-links-visible-for-small-displays li {
+    text-align: center;
 }
 .nav-bar-links-visible-for-small-displays li a {
     /* max-height: fit-content; */
-    font-size: 14px;
+    /* font-size: 18px; */
     padding: 10px;
+    /* font-weight: 500; */
     /* color: var(--primary-color-dark); */
     /* border: 1px solid var(--primary-color); */
     /* background-color: white */
@@ -50,6 +52,7 @@
     /* color: var(white); */
     /* transform: scale(1.05); */
     font-weight: 600;
+    font-size: 21px;
 }
 .nav-menu-button {
     z-index: 15;
@@ -58,4 +61,18 @@
 .nav-bar-links-visible-for-small-displays #cart-logo p {
     position: absolute;
     right: 10%;
+}
+.small-active-nav-links {
+    padding: 2px;
+    font-weight: 500;
+    font-size: 22px;
+    color: red;
+    text-decoration: none;
+}
+.small-inactive-nav-links {
+    padding: 5px;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--primary-color);
+    text-decoration: none;
 }
