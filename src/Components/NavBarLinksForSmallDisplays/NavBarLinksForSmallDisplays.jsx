@@ -61,7 +61,8 @@ export const NavBarLinksForSmallDisplays = () => {
                                 {/* <i class="fa-regular fa-heart"></i> */}
                                 {/* <br />  */}
                                 Wishlist{' '}
-                                {state.isLoggedIn && `(${totalProductsInCart})`}
+                                {state.isLoggedIn &&
+                                    `(${totalProductsInWishlist})`}
                             </NavLink>
                         </li>
                         <li id="cart-logo">

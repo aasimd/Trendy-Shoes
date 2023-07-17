@@ -62,7 +62,7 @@ export const ProfilePage = () => {
 					>
 						Addresses
 					</button>
-					<button
+					{/* <button
 						onClick={() => setPageState("OrderHistory")}
 						className={
 							pageState === "OrderHistory"
@@ -71,7 +71,7 @@ export const ProfilePage = () => {
 						}
 					>
 						Order History
-					</button>
+					</button> */}
 				</div>
 				<div className="profile-content">
 					{pageState === "Addresses" && (
