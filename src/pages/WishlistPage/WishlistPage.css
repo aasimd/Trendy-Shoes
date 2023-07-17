@@ -121,6 +121,7 @@
     }
     .empty-wishlist {
         display: flex;
+		flex-direction: row;
         position: relative;
         margin: 70px auto;
     }
@@ -128,4 +129,11 @@
         font-size: 30px;
         color: #333333;
     }
+	.empty-wishlist div:nth-of-type(2) {
+		width: 90%;
+		margin: 20px auto;
+	}
+	.empty-wishlist div img {
+		width: 50%;
+	}
 }
