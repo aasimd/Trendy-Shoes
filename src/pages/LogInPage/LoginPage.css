@@ -3,7 +3,8 @@
 * {
     box-sizing: border-box;
 }
-.login-page form div {
+.login-page form div,
+.signup-page form div {
     margin: 10px;
 }
 .login-page,
@@ -47,8 +48,7 @@
     justify-content: center;
 }
 
-.submit-button input[type='submit'],
-.signup-page button:nth-of-type(1) {
+.submit-button input[type='submit'] {
     background-color: var(--primary-color);
     border: none;
     color: white;
@@ -57,12 +57,11 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.submit-button input[type='submit']:hover,
-.signup-page button:nth-of-type(1):hover {
+.submit-button input[type='submit']:hover {
     background-color: var(--primary-color-dark);
 }
 .login-page button:nth-of-type(1),
-.signup-page button:nth-of-type(2) {
+.signup-page button:nth-of-type(1) {
     background-color: white;
     padding: 5px;
     border-radius: 10px;
@@ -71,19 +70,20 @@
     cursor: pointer;
 }
 .login-page button:nth-of-type(1):hover,
-.signup-page button:nth-of-type(2):hover {
+.signup-page button:nth-of-type(1):hover {
     color: var(--primary-color-dark);
     border: 1px solid var(--primary-color-dark);
 }
 
 .login-page button:nth-of-type(2),
-.signup-page button:nth-of-type(3) {
+.signup-page button:nth-of-type(2) {
     color: var(--primary-color);
     background-color: white;
     border: none;
 }
 .login-page button:nth-of-type(2):hover,
-.signup-page button:nth-of-type(3):hover {
+.signup-page button:nth-of-type(2):hover {
     color: var(--primary-color-dark);
     cursor: pointer;
+    text-decoration: underline;
 }

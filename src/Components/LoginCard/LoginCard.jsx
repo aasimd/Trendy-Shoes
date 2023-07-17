@@ -31,10 +31,7 @@ export const LoginCard = ({ setPageState }) => {
                 email: loginInfo.email,
                 password: loginInfo.password,
             },
-            state,
-            dispatch,
-            navigate,
-            location
+            dispatch
         )
         if (response) {
             dispatch({ type: 'setLogin', payload: true })

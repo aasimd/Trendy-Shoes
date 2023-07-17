@@ -46,13 +46,7 @@ export const fetchSelectedProduct = async (dispatch, productId) => {
     }
     dispatch({ type: 'changeIsLoading', payload: false })
 }
-export const fetchEncodedToken = async (
-    data,
-    state,
-    dispatch,
-    navigate,
-    location
-) => {
+export const fetchEncodedToken = async (data, dispatch) => {
     const creds = {
         email: data.email,
         password: data.password,
@@ -76,7 +70,7 @@ export const fetchEncodedToken = async (
             })
             getCartData(dispatch)
             getWishlistData(dispatch)
-            
+
             return true
         }
     } catch ({ errors }) {
@@ -88,7 +82,7 @@ export const fetchEncodedToken = async (
         return false
     }
 }
-export const fetchSignupUser = async (data, dispatch, navigate, location) => {
+export const fetchSignupUser = async (data, dispatch) => {
     try {
         const creds = JSON.stringify(data)
         const response = await fetch('/api/auth/signup', {
@@ -96,23 +90,17 @@ export const fetchSignupUser = async (data, dispatch, navigate, location) => {
             body: creds,
         })
         const { encodedToken, createdUser } = await response.json()
-        localStorage.setItem('encodedtoken', encodedToken)
-        dispatch({ type: 'setLoginEncodedToken', payload: encodedToken })
-        dispatch({ type: 'setUserInfo', payload: createdUser })
-        dispatch({ type: 'setLogin', payload: true })
-        getCartData(dispatch)
-        getWishlistData(dispatch)
-        dispatch({ type: 'changeIsLoading', payload: true })
-        setTimeout(() => {
-            navigate(location?.state?.from?.pathname)
-        }, 800)
+        if (encodedToken !== undefined) {
+            localStorage.setItem('encodedtoken', encodedToken)
+            dispatch({ type: 'setLoginEncodedToken', payload: encodedToken })
+            dispatch({ type: 'setUserInfo', payload: createdUser })
+            return true
+        } else {
+            return false
+        }
     } catch (e) {
-        navigate('/login')
         console.error('error in signing up user')
-        dispatch({
-            type: 'setLoginError',
-            payload: 'Email ID already exists',
-        })
+        return false
     }
 }
 export const fetchAddItemToWishlist = async (productToAdd) => {
